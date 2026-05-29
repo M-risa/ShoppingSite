@@ -1,64 +1,32 @@
 package jp.co.aforce.servlet;
 
-import java.io.IOException;
-
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import jp.co.aforce.beans.UserBeans;
 import jp.co.aforce.dao.UserDAO;
+import jp.co.aforce.tool.Action;
 
-/**
- * Servlet implementation class LoginAction
- */
-@WebServlet("/servlet/login-action")
-public class LoginAction extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginAction() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(
+public class LoginAction extends Action {
+	public String execute(
 			HttpServletRequest request, HttpServletResponse response
-			) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+			) throws Exception {
+
 		HttpSession session=request.getSession();
 		
 		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
 		UserDAO dao = new UserDAO();
 		
-		try {
 		UserBeans user = dao.search(memberId, password);
 		
 		if(user != null) {
 			session.setAttribute("user", user);
-			
-			request.getRequestDispatcher("user-menu.jsp").forward(request, response);
-		
-		} else {
-			request.getRequestDispatcher("login-error.jsp").forward(request, response);
+			return "redirect:/views/user-menu.jsp";
 		}
-	
 		
-	} catch(Exception e) {
-		e.printStackTrace();
+		return "/views/login-error.jsp";
+	}
 		
-		request.getRequestDispatcher("login-error.jsp").forward(request, response);
-	}
-
-	}
 }

@@ -8,7 +8,7 @@ import jp.co.aforce.beans.UserBeans;
 
 public class UserDAO extends DAO {
 	public UserBeans search(String memberId, String password) 
-	throws Exception{
+		throws Exception{
 		UserBeans user = null;
 		
 		Connection con=getConnection();
@@ -20,7 +20,7 @@ public class UserDAO extends DAO {
 		st.setString(2, password);
 		ResultSet rs=st.executeQuery();
 		
-		if(rs.next()) {
+		while(rs.next()) {
 			user=new UserBeans();
 			user.setmemberId(rs.getString("MEMBER_ID"));
 			user.setpassword(rs.getString("PASSWORD"));

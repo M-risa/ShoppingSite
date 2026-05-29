@@ -4,13 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ログインエラー</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+
 </head>
 <body>
-	<p>IDもしくはパスワードが違います。<p>
-	<br>
-	
-	<a href="login-in.jsp">ログイン画面に戻る</a>
 
+	<div class = "common-container">
+		<h2 class ="error-text">IDもしくはパスワードが違います。</h2>
+		<br>
+		
+		<a href="${pageContext.request.contextPath}/views/login-in.jsp">ログイン画面に戻る</a>
+	</div>
+	
 </body>
 </html>
