@@ -23,10 +23,16 @@ public class LoginAction extends Action {
 		
 		if(user != null) {
 			session.setAttribute("user", user);
+			
+			//管理者画面に行くかどうかの分岐
+			if(user.getRole()== 1) {
+			return "redirect:/views/admin-menu.jsp";
+			} else {
 			return "redirect:/views/user-menu.jsp";
+			}
 		}
-		
 		return "/views/login-error.jsp";
+		
 	}
 		
 }

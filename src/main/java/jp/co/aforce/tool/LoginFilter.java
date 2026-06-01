@@ -12,6 +12,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import jp.co.aforce.beans.UserBeans;
+
 public class LoginFilter implements Filter {
 	public void init(FilterConfig filterConfig) throws ServletException{}
 	public void doFilter(ServletRequest request, ServletResponse response , FilterChain chain)
@@ -31,6 +33,16 @@ public class LoginFilter implements Filter {
         if(session == null || session.getAttribute("user") == null) {
         	res.sendRedirect(req.getContextPath() + "/views/login-in.jsp");
         	return;
+        }
+        
+        UserBeans user = (UserBeans) session.getAttribute("user");
+        String requestURI = req.getRequestURI();
+        
+        if(requestURI.contains("/views/admin-menu.jsp")){
+        	if(user.getRole() != 1) {
+        		res.sendRedirect(req.getContextPath() + "/views/user-menu.jsp");
+        		return;
+        	}
         }
         
         chain.doFilter(request, response);

@@ -15,9 +15,10 @@ public class UserDAO extends DAO {
 		
 		PreparedStatement st;
 		st=con.prepareStatement(
-				"select * from users WHERE MEMBER_ID = ? AND PASSWORD = ?");
+				"select * from users WHERE (MEMBER_ID = ? OR MAIL_ADDRESS = ?) AND PASSWORD = ?");
 		st.setString(1, memberId);
-		st.setString(2, password);
+		st.setString(2, memberId);
+		st.setString(3, password);
 		ResultSet rs=st.executeQuery();
 		
 		while(rs.next()) {
@@ -28,6 +29,7 @@ public class UserDAO extends DAO {
 			user.setfirstName(rs.getString("FIRST_NAME"));
 			user.setaddress(rs.getString("ADDRESS"));
 			user.setmailAddress(rs.getString("MAIL_ADDRESS"));
+			user.setRole(rs.getInt("role"));
 		}
 		
 	

@@ -8,6 +8,7 @@ public class UserBeans implements java.io.Serializable{
 	private String firstName;
 	private String address;
 	private String mailAddress;
+	private int role;
 	
 	public String getmemberId() {
 		return memberId;
@@ -54,6 +55,14 @@ public class UserBeans implements java.io.Serializable{
 	}
 	public void setmailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
+	}
+	
+	
+	public int getRole() {
+		return role;
+	}
+	public void setRole(int role) {
+		this.role = role;
 	}
 	
 

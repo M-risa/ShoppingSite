@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+/*画面全体のレイアウト調整（上下固定用） */
+
+html, body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: #f9f9f9; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ヘッダー*/
+.site-header {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000; 
+    padding: 20px 50px; 
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+	min-width: 320px;
+}
+
+/* ロゴの文字 */
+.header-logo {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+	white-space: nowrap;
+}
+
+/* 右側メニューのリンク*/
+.header-nav a {
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    margin-left: 30px; 
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+	white-space: nowrap;
+}
+
+/* マウスホバー */
+.header-nav a:hover {
+    color: #666666;
+}
+
+/* メニューボタン*/
+.header-nav a.nav-menu-btn {
+    border: 1px solid #000000;
+    padding: 6px 14px;
+    margin-left: 25px;
+    transition: all 0.3s;
+}
+.header-nav a.nav-menu-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* フッター*/
+.site-footer {
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    padding: 40px 0 30px 0;
+    text-align: center;
+    box-sizing: border-box;
+	margin-top: auto;
+}
+
+/* フッターのリンクエリア */
+.footer-links {
+    margin-bottom: 20px;
+}
+.footer-links a {
+    font-size: 11px;
+    color: #666666;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+.footer-links a:hover {
+    color: #000000;
+}
+
+/* コピーライト */
+.copyright {
+    font-size: 10px;
+    color: #999999;
+    letter-spacing: 0.08em;
+    margin: 0;
+}
+
+/* 中央ボックス*/
+.common-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;	
+	margin: auto auto; 
+	padding-top: 40px;
+	padding-bottom: 40px;
+	}

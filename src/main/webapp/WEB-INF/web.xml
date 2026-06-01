@@ -12,6 +12,7 @@
 <filter-mapping>
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/views/user-menu.jsp</url-pattern>
+    <url-pattern>/views/admin-menu.jsp</url-pattern>
 </filter-mapping>
 
 </web-app>

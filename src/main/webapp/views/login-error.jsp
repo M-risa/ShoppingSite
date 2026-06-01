@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ログインエラー</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/error.css">
 
 </head>
-<body>
+
+<body><%@include file="header.jsp" %>
 
 	<div class = "common-container">
 		<h2 class ="error-text">IDもしくはパスワードが違います。</h2>
@@ -16,6 +19,7 @@
 		
 		<a href="${pageContext.request.contextPath}/views/login-in.jsp">ログイン画面に戻る</a>
 	</div>
-	
+
+<%@ include file="footer.jsp" %>	
 </body>
 </html>

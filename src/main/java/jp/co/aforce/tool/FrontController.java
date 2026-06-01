@@ -29,7 +29,7 @@ public class FrontController extends HttpServlet {
 			if (url != null && url.startsWith("redirect:")) {
 				// 「redirect:」の文字を消して、残りの「/views/〜」を取得
 				String targetUrl = url.replace("redirect:", "");
-				// ブラウザに対して「URLごと新しく移動してね！」と命令する（リダイレクト）
+				// ブラウザに対して「URLごと新しく移動」と命令する（リダイレクト）
 				response.sendRedirect(request.getContextPath() + targetUrl);
 			} else {
 				// 今まで通りのフォワード
