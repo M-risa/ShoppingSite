@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/*管理者画面用のパーツ*/
+
+#admin-body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: gray;
+	color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.admin-container {
+    max-width: 100%;
+	width: 100%;
+	max-width: 440px;
+	padding: 40px;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;	
+	margin: auto auto; 
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+/* 管理者画面のタイトル */
+.admin-container h2 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e50914;
+    padding-bottom: 10px;
+}
+
+/* ようこそメッセージ（文字を白系に変更） */
+.admin-container .welcome-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e0e0e0; /* 明るいグレー */
+    margin-top: 0;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* 修正・削除ボタン */
+.btn-menu {
+	display: block;
+	width: 60%;
+	margin: 0 auto 15px auto; 
+	padding: 12px;
+	background-color: #0a0a0a;
+	color: #cccccc;
+	border: 1px solid #444444;
+	font-size: 13px;
+	font-weight: 700;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: all 0.3s;
+	}
+
+.btn-menu:hover {
+	background-color: #ffffff;
+	    color: #000000;
+	    border-color: #ffffff;
+	    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+	}
+
+/* ログアウトフォームの区切り線 */
+.logout-form {
+    margin-top: 40px;
+    border-top: 1px solid #333333;
+    padding-top: 25px;
+}
+
+/* ログアウトボタン */
+.btn-logout {
+	display: block;
+	    width: 60%;
+	    margin: 0 auto;
+	    padding: 12px;
+	    background-color: transparent;
+	    color: #888888;
+	    border: 1px solid #444444;
+	    font-size: 13px;
+	    font-weight: 700;
+	    cursor: pointer;
+	    border-radius: 4px;
+	    transition: all 0.3s;
+	}
+
+.btn-logout:hover {
+	background-color: rgba(255, 68, 68, 0.05);
+	    color: #ff4444;
+	    border-color: #ff4444;
+	}

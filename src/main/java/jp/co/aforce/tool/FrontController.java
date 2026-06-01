@@ -26,6 +26,8 @@ public class FrontController extends HttpServlet {
 			Action action = (Action)Class.forName(name).
 					getDeclaredConstructor().newInstance();
 			String url = action.execute(request, response);
+			
+			//ログインに成功したあとの、画面の『URL』と『二重送信（リロード）の不具合』を解決するため
 			if (url != null && url.startsWith("redirect:")) {
 				// 「redirect:」の文字を消して、残りの「/views/〜」を取得
 				String targetUrl = url.replace("redirect:", "");

@@ -7,14 +7,14 @@
 <title>管理者メニュー</title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
 
 </head>
 
-<body id ="page-body"><%@include file="header.jsp" %>
+<body id ="admin-body"><%@include file="header.jsp" %>
 
-	<div class = "common-container">
-		<p class="welcome-text">ようこそ、${user.lastName}さん！</p>
+	<div class = "admin-container">
+		<p class="welcome-text">【管理者モード】ようこそ、${user.lastName}さん！</p>
 	
 		<input type="submit" value="修正" class = "btn-menu">
 		<input type="submit" value="削除" class = "btn-menu">
