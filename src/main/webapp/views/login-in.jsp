@@ -19,12 +19,12 @@
 	<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/Login.action" method="post">
 		<div class="input-group">
 			<label for="memberId">IDまたはメールアドレス</label>
-			<input type="text" name="memberId">
+			<input type="text" name="memberId" required>
 		</div>
 		
 		<div class="input-group">
 			<label for="password">パスワード</label>
-			<input type="password" name="password" id="login-password">
+			<input type="password" name="password" id="login-password" required>
 		</div>
 		<div class="password-toggle-group">
 		    <input type="checkbox" id="password-toggle" onclick="togglePassword()">
@@ -36,7 +36,8 @@
 	
 		<div class="login-footer">
 			<p>アカウントはお持ちですか？</p>
-			<input type="submit" value="新規会員登録">
+			<input type="submit" value="新規会員登録"
+				onclick="location.href='${pageContext.request.contextPath}/views/user-add.jsp'">
 		</div>
 	
 	</div>

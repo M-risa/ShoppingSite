@@ -9,6 +9,22 @@ public class UserBeans implements java.io.Serializable{
 	private String address;
 	private String mailAddress;
 	private int role;
+	private String registDate; 
+	private String updateDate;
+	
+	public UserBeans() {}
+	
+	public UserBeans(String memberId, String password, String lastName, String firstName, String address, String mailAddress, int role, String registDate, String updateDate) {
+		this.memberId = memberId;
+		this.password = password;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.address = address;
+		this.mailAddress = mailAddress;
+		this.role = role;
+		this.registDate = registDate;
+		this.updateDate = updateDate;
+	}
 	
 	public String getmemberId() {
 		return memberId;
@@ -63,6 +79,22 @@ public class UserBeans implements java.io.Serializable{
 	}
 	public void setRole(int role) {
 		this.role = role;
+	}
+	
+	
+	public String getregistDate() {
+		return registDate;
+	}
+	public void setregistDate(String registDate) {
+		this.registDate = registDate;
+	}
+	
+	
+	public String getupdateDate() {
+		return updateDate;
+	}
+	public void setupdateDate(String updateDate) {
+		this.updateDate = updateDate;
 	}
 	
 
