@@ -80,6 +80,7 @@ public class UserDAO extends DAO {
 		
 	}
 	
+	//削除
 	public int delete(String memberId) throws Exception{
 		Connection con=getConnection();
 		PreparedStatement st = con.prepareStatement("DELETE FROM users WHERE MEMBER_ID = ?");
@@ -90,6 +91,25 @@ public class UserDAO extends DAO {
 		con.close();
 		
 		return line;
+	}
+	
+	//更新
+	public int update(UserBeans user) throws Exception{
+		Connection con=getConnection();
+		String sql ="UPDATE users SET LAST_NAME = ?, FIRST_NAME = ?, ADDRESS = ?, MAIL_ADDRESS = ?, UPDATE_DATE = NOW() WHERE MEMBER_ID = ?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, user.getlastName());
+	    st.setString(2, user.getfirstName());
+	    st.setString(3, user.getaddress());
+	    st.setString(4, user.getmailAddress());
+	    st.setString(5, user.getmemberId());
+	    
+	    int line = st.executeUpdate();
+	    
+	    st.close();
+	    con.close();
+	    
+	    return line;
 	}
 
 }

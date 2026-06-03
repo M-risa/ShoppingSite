@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>新規会員登録情報確認 | shoppingSite</title>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+
 </head>
-<body>
+<body id="page-body">
+	<div class="common-container">
 
 	<h2>登録内容確認</h2>
 	<p>以下の内容で登録します。よろしいですか？</p>
@@ -32,6 +36,8 @@
 	<input type="button" value="戻る"
 		onclick="history.back()">
 	</form>
+	
+	</div>
 
 </body>
 </html>

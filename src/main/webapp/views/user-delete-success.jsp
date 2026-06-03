@@ -4,23 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
-
+<title>削除完了</title>
+</head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 
 </head>
 <body id="page-body"><%@include file="header.jsp" %>
 	<div class="common-container">
-		<h2>削除してよろしいですか？</h2>
-		
-		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserDeleteConfirm.action">
-			<input type="submit" value="削除" class="delete-btn">
-			<input type="button" value="戻る"
-				onclick="history.back()">
-		</form>
+		<h2>会員情報削除完了</h2>
+			<p>会員情報を削除しました。</p><br>
+			
+			<a href="${pageContext.request.contextPath}/views/login-in.jsp">ログイン画面に戻る</a>
+			
 	</div>
-	
 
-<%@ include file="footer.jsp" %>
+
 </body>
 </html>

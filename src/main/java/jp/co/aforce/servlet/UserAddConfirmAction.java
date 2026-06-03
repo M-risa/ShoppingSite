@@ -24,6 +24,8 @@ public class UserAddConfirmAction extends Action{
 		UserBeans user = new UserBeans(
 				memberId, password, lastName, firstName, address, mailAddress, 0, "", "");
 		UserDAO dao = new UserDAO();
+		
+		
 		int result = dao.insert(user);
 		
 		if(result > 0) {
@@ -35,4 +37,6 @@ public class UserAddConfirmAction extends Action{
 				
 
 	}
+	
 }
+

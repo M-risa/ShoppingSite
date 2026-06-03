@@ -38,6 +38,7 @@ public class LoginFilter implements Filter {
         UserBeans user = (UserBeans) session.getAttribute("user");
         String requestURI = req.getRequestURI();
         
+        
         if(requestURI.contains("/views/admin-menu.jsp")){
         	if(user.getRole() != 1) {
         		res.sendRedirect(req.getContextPath() + "/views/user-menu.jsp");

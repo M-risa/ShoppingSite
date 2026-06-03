@@ -16,7 +16,8 @@
 	<div class = "common-container">
 		<p class="welcome-text">ようこそ、${user.lastName}さん！</p>
 	
-		<input type="submit" value="修正" class = "btn-menu">
+		<input type="button" value="登録情報変更" class = "btn-menu"
+			onclick="location.href='${pageContext.request.contextPath}/views/user-edit.jsp'">
 		<input type="button" value="削除" class = "btn-menu"
 			onclick="location.href='${pageContext.request.contextPath}/views/user-delete-confirm.jsp'">
 		
