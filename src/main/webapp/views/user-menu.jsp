@@ -17,7 +17,8 @@
 		<p class="welcome-text">ようこそ、${user.lastName}さん！</p>
 	
 		<input type="submit" value="修正" class = "btn-menu">
-		<input type="submit" value="削除" class = "btn-menu">
+		<input type="button" value="削除" class = "btn-menu"
+			onclick="location.href='${pageContext.request.contextPath}/views/user-delete-confirm.jsp'">
 		
 		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/Logout.action" method="post">
 			<input type="submit" value="ログアウト" class = "btn-logout">

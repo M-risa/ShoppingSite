@@ -17,10 +17,10 @@
 
 	<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserAdd.action" method="post">
 		<label for="memberId">ID：</label>
-		<input type="text" name="memberId" required>
+		<input type="text" name="memberId">
 		
 		<label for="password">パスワード：</label>
-		<input type="password" name="password" required>
+		<input type="password" name="password">
 		
 		<label for="lastName">名前（姓）：</label>
 		<input type="text" name="lastName">
@@ -32,11 +32,14 @@
 		<input type="text" name="address">
 		
 		<label for="mailAddress">メールアドレス：</label>
-		<input type="text" name="mailAddress" required>
+		<input type="text" name="mailAddress">
 		
 		<input type="submit" value="確認">
-		<input type="submit" value="ログイン画面に戻る">
 	</form>
+		
+		<input type="submit" value="ログイン画面に戻る"
+			onclick="location.href='${pageContext.request.contextPath}/views/login-in.jsp'">
+	
 	
 	
 

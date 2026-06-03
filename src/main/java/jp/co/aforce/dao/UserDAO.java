@@ -15,8 +15,7 @@ public class UserDAO extends DAO {
 		Connection con=getConnection();
 		
 		PreparedStatement st;
-		st=con.prepareStatement(
-				"select * from users WHERE (MEMBER_ID = ? OR MAIL_ADDRESS = ?) AND PASSWORD = ?");
+		st=con.prepareStatement("SELECT * FROM users WHERE (MEMBER_ID = ? OR MAIL_ADDRESS = ?) AND PASSWORD = ?");
 		st.setString(1, memberId);
 		st.setString(2, memberId);
 		st.setString(3, password);
@@ -62,9 +61,8 @@ public class UserDAO extends DAO {
 	
 	//データ挿入
 	public int insert(UserBeans user) throws Exception{
-		
 		Connection con=getConnection();
-		String sql = "INSERT INTO users (MEMBER_ID, PASSWORD, LAST_NAME, FARST_NAME, ADDRESS, MAIL_ADDRESS, role, REGIST_DATE, UPDATE_DATE) VALUES(?, ?, ?, ?, ?, ? ,0, NOW(), NOW())";
+		String sql = "INSERT INTO users (MEMBER_ID, PASSWORD, LAST_NAME, FIRST_NAME, ADDRESS, MAIL_ADDRESS, role, REGIST_DATE, UPDATE_DATE) VALUES(?, ?, ?, ?, ?, ? ,0, NOW(), NOW())";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, user.getmemberId());
 		st.setString(2, user.getpassword());
@@ -80,6 +78,18 @@ public class UserDAO extends DAO {
 		
 		return line;
 		
+	}
+	
+	public int delete(String memberId) throws Exception{
+		Connection con=getConnection();
+		PreparedStatement st = con.prepareStatement("DELETE FROM users WHERE MEMBER_ID = ?");
+		st.setString(1, memberId);
+		int line = st.executeUpdate();
+		
+		st.close();
+		con.close();
+		
+		return line;
 	}
 
 }
