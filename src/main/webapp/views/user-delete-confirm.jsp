@@ -4,23 +4,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>退会</title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/delete.css">
+
 
 </head>
 <body id="page-body"><%@include file="header.jsp" %>
 	<div class="common-container">
-		<h2>削除してよろしいですか？</h2>
+		<h2>退会</h2>
+		<h3>${user.lastName}さん</h3>
+		<p>退会手続きを完了するには、本人確認のためメールアドレスとパスワードを入力してください。</p>
+		
+		<% if(request.getAttribute("error") != null){ %>
+		<p style="color: #ff4444;  font-weight: bold; margin-bottom: 15px;">
+            ${error}
+        </p>
+    <% } %>
 		
 		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserDeleteConfirm.action">
-			<input type="submit" value="削除" class="delete-btn">
+		
+		<div class="input-group">
+			<label for="memberId">IDまたはメールアドレス</label>
+			<input type="text" name="memberId">
+		</div>
+		
+		<div class="input-group">
+			<label for="password">パスワード</label>
+			<input type="password" name="password" id="login-password">
+		</div>
+		<div class="password-toggle-group">
+		    <input type="checkbox" id="password-toggle" onclick="togglePassword()">
+		    <label tensor for="password-toggle">パスワードを表示する</label>
+		</div>
+		
+			<input type="submit" value="退会" class="btn-delete">
 			<input type="button" value="戻る"
-				onclick="history.back()">
+				onclick="location.href='${pageContext.request.contextPath}/views/user-menu.jsp'">
 		</form>
 	</div>
 	
-
+<script src="${pageContext.request.contextPath}/script/script.js"></script>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

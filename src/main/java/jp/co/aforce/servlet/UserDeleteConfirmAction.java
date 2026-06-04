@@ -14,9 +14,9 @@ public class UserDeleteConfirmAction extends Action{
 	public String execute(HttpServletRequest request, HttpServletResponse response
 			) throws Exception {
 		
-		//メアド＋IDとパスワードを書いて削除するパターン用
-//		String loginId = request.getParameter("loginId");
-//		String password = request.getParameter("password");
+//		メアド＋IDとパスワードを書いて削除するパターン用
+		String memberId = request.getParameter("memberId");
+		String password = request.getParameter("password");
 	
 		HttpSession session=request.getSession();
 		UserBeans loginUser = (UserBeans) session.getAttribute("user");
@@ -29,8 +29,8 @@ public class UserDeleteConfirmAction extends Action{
 		UserDAO dao = new UserDAO();
 		
 		//本人確認チェック
-//		User checkUser = dao.search(loginId, password);
-//		if(checkUser != null && checkUser.getMemberId().equals(loginUser.getMemberId())) {
+		UserBeans checkUser = dao.search(memberId, password);
+		if(checkUser != null && checkUser.getmemberId().equals(loginUser.getmemberId())) {
 	
 		int result = dao.delete(loginUser.getmemberId());
 		
@@ -42,10 +42,10 @@ public class UserDeleteConfirmAction extends Action{
 			return "/views/user-delete-confirm.jsp";
 		}
 	
-//		} else{
-//			request.setAttribute("error", "入力情報が正しくありません");
-//			return "/views/user-delete-confirm.jsp;
-//		}
+		} else{
+			request.setAttribute("error", "入力情報が正しくありません");
+			return "/views/user-delete-confirm.jsp";
+		}
 	
 	}
 }
