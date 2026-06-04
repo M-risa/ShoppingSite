@@ -17,6 +17,34 @@ public class UserEditAction extends Action{
 		String address = request.getParameter("address");
 		String mailAddress = request.getParameter("mailAddress");
 		
+		//エラー時に入力値を残すための処理
+		request.setAttribute("lastName", lastName);
+		request.setAttribute("firstName", firstName);
+		request.setAttribute("address", address);
+		request.setAttribute("mailAddress", mailAddress);
+		
+		//個別のエラーチェックを記憶する
+		boolean hasError = false;
+		
+		if(lastName == null || lastName.isEmpty() ||
+				firstName == null || firstName.isEmpty() ||
+				address == null || address.isEmpty() ||
+				mailAddress == null || mailAddress.isEmpty()) {
+			
+			request.setAttribute("error", "空の項目があります。全ての項目を入力してください。");
+			hasError = true;
+		}
+		
+		// メールアドレスに「@」が含まれていなければエラー
+		if (!mailAddress.contains("@")) {
+			request.setAttribute("mailError", "メールアドレスの形式が正しくありません。");
+			hasError = true;
+			}
+		
+		if(hasError) {
+			return "/views/user-edit.jsp";
+		}
+		
 		UserBeans editUser = new UserBeans();
 		editUser.setlastName(lastName);
 		editUser.setfirstName(firstName);

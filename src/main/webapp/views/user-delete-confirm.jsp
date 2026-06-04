@@ -25,24 +25,26 @@
 		
 		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserDeleteConfirm.action">
 		
-		<div class="input-group">
-			<label for="memberId">IDまたはメールアドレス</label>
-			<input type="text" name="memberId">
-		</div>
-		
-		<div class="input-group">
-			<label for="password">パスワード</label>
-			<input type="password" name="password" id="login-password">
-		</div>
-		<div class="password-toggle-group">
-		    <input type="checkbox" id="password-toggle" onclick="togglePassword()">
-		    <label tensor for="password-toggle">パスワードを表示する</label>
-		</div>
+			<div class="input-group">
+				<label for="memberId">IDまたはメールアドレス</label>
+				<input type="text" name="memberId">
+			</div>
+			
+			<div class="input-group">
+				<label for="password">パスワード</label>
+				<input type="password" name="password" id="login-password">
+			</div>
+			<div class="password-toggle-group">
+			    <input type="checkbox" id="password-toggle" onclick="togglePassword()">
+			    <label tensor for="password-toggle">パスワードを表示する</label>
+			</div>
 		
 			<input type="submit" value="退会" class="btn-delete">
-			<input type="button" value="戻る"
+		</form>	
+		
+			<input type="button" value="戻る" class="btn-back"
 				onclick="location.href='${pageContext.request.contextPath}/views/user-menu.jsp'">
-		</form>
+		
 	</div>
 	
 <script src="${pageContext.request.contextPath}/script/script.js"></script>
