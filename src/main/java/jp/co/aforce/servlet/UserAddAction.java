@@ -42,20 +42,25 @@ public class UserAddAction extends Action{
 		}
 		
 		// 半角英数字（a-z, A-Z, 0-9）以外が含まれていたらエラー
-		if (!memberId.matches("^[a-zA-Z0-9]+$")) {
-		    request.setAttribute("idError", "ユーザーIDは半角英数字のみで入力してください。");
-		    hasError = true;
+		if(!memberId.matches("^[a-zA-Z][0-9]+$")) {
+		   request.setAttribute("idError", "ユーザーIDは半角英数字のみで入力してください。");
+		   hasError = true;
 		}
 		//パスワード文字数チェック
-		if(password.length() < 5) {
+		if(password.length() < 5 && !password.matches("^(?=.*[a-zA-Z])(?=.*[0-9][a-zA-Z0-9]+$)")) {
 			request.setAttribute("passError","パスワードは5文字以上で入力してください。");
 			hasError = true;
 		}
 		
 		// メールアドレスに「@」が含まれていなければエラー
-		if (!mailAddress.contains("@")) {
-		    request.setAttribute("mailError", "メールアドレスの形式が正しくありません。");
-		    hasError = true;
+		if(mailAddress.startsWith("@") || mailAddress.endsWith(mailAddress)) {
+		   request.setAttribute("mailError", "メールアドレスの形式が正しくありません。");
+		   hasError = true;
+		}
+		
+		//住所の文字制限
+		if(address.length() < 5) {
+			request.setAttribute("addressError", "住所は都道府県から正確に入力してください。");
 		}
 		
 		if(hasError) {

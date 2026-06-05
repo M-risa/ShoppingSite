@@ -22,38 +22,38 @@
 	
 		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserAdd.action" method="post">
 		<div class="input-group">
-			<% if(request.getAttribute("idError") != null){ %>
-				<p style="color: #ff4444;  font-weight: bold; margin-bottom: 15px;">
-		            ${idError}
-		        </p>
-		    <% } %>
-				<label for="memberId">ID：</label>
-				<input type="text" name="memberId"><br>
+			
+			<label for="memberId">ID</label>
+				<% if(request.getAttribute("idError") != null){ %>
+				<p class="error-message" style="color: #ff4444;">${idError}</p>
+		    	<% } %>
+			<input type="text" name="memberId" placeholder="例）M123456"><br>	
 				
+			<label for="password">パスワード</label>
 				<% if(request.getAttribute("passError") != null){ %>
-				<p style="color: #ff4444;  font-weight: bold; margin-bottom: 15px;">
-		            ${passError}
-		        </p>
-		    <% } %>
-				<label for="password">パスワード：</label>
-				<input type="password" name="password"><br>
+				<p class="error-message" style="color: #ff4444;">${passError}</p>
+		    	<% } %>
+			<input type="password" name="password"><br>
 				
-				<label for="lastName">名前（姓）：</label>
-				<input type="text" name="lastName"><br>
+			<label for="lastName">名前（姓）</label>
+			<input type="text" name="lastName" placeholder="例）山田"><br>
 				
-				<label for="firstName">名前（名）：</label>
-				<input type="text" name="firstName"><br>
+			<label for="firstName">名前（名）</label>
+			<input type="text" name="firstName" placeholder="例）太郎"><br>
 				
-				<label for="address">住所：</label>
-				<input type="text" name="address"><br>
 				
+			<label for="address">住所</label>
+				<% if(request.getAttribute("addressError") != null){ %>
+				<p class="error-message" style="color: #ff4444;">${addressError}</p>
+		    	<% } %>
+			<input type="text" name="address" placeholder="例）○○県××市"><br>
+				
+				
+			<label for="mailAddress">メールアドレス</label>
 				<% if(request.getAttribute("mailError") != null){ %>
-				<p style="color: #ff4444;  font-weight: bold; margin-bottom: 15px;">
-		            ${mailError}
-		        </p>
-		    <% } %>
-				<label for="mailAddress">メールアドレス：</label>
-				<input type="text" name="mailAddress"><br>
+				<p class="error-message" style="color: #ff4444;">${mailError}</p>
+		    	<% } %>
+			<input type="text" name="mailAddress" placeholder="例）example@mail.com"><br>
 		</div>
 				
 				<input type="submit" value="確認" class="btn-edit">

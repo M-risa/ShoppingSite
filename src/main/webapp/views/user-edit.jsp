@@ -17,22 +17,23 @@
 		
 		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserEdit.action" method="post">
 			<div class="input-group">
-				<label for="lastName">名前（姓）：</label>
-				<input type="text" name="lastName" value="${user.getlastName()}" required><br>
+				<label for="lastName">名前（姓）</label>
+				<input type="text" name="lastName" value="${user.getlastName()}" placeholder="例）山田" required><br>
 				
-				<label for="firstName">名前（名）：</label>
-				<input type="text" name="firstName" value="${user.getfirstName()}" required><br>
+				<label for="firstName">名前（名）</label>
+				<input type="text" name="firstName" value="${user.getfirstName()}" placeholder="例）太郎" required><br>
 				
-				<label for="address">住所：</label>
-				<input type="text" name="address" value="${user.getaddress()}" required><br>
+				<% if(request.getAttribute("addressError") != null){ %>
+					<p class="error-message" style="color: #ff4444;">${addressError}</p>
+	    		<% } %>
+				<label for="address">住所</label>
+				<input type="text" name="address" value="${user.getaddress()}" placeholder="例）○○県××市" required><br>
 				
 				<% if(request.getAttribute("mailError") != null){ %>
-					<p style="color: #ff4444;  font-weight: bold; margin-bottom: 15px;">
-	            		${mailError}
-	        		</p>
+					<p class="error-message" style="color: #ff4444;">${mailError}</p>
 	    		<% } %>
-				<label for="mailAddress">メールアドレス：</label>
-				<input type="text" name="mailAddress" value="${user.getmailAddress()}" required><br>
+				<label for="mailAddress">メールアドレス</label>
+				<input type="text" name="mailAddress" value="${user.getmailAddress()}" placeholder="例）example@mail.com"  required><br>
 			</div>
 			
 			<input type="submit" value="確認" class="btn-edit">

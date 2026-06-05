@@ -36,9 +36,14 @@ public class UserEditAction extends Action{
 		}
 		
 		// メールアドレスに「@」が含まれていなければエラー
-		if (!mailAddress.contains("@")) {
+		if (mailAddress.startsWith("@") || mailAddress.endsWith("@")) {
 			request.setAttribute("mailError", "メールアドレスの形式が正しくありません。");
 			hasError = true;
+			}
+		
+		//住所の文字制限
+		if(address.length() < 5) {
+			request.setAttribute("addressError", "住所は都道府県から正確に入力してください。");
 			}
 		
 		if(hasError) {

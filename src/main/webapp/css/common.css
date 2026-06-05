@@ -114,13 +114,11 @@ body {
     background-color: #ffffff;
     width: 100%;
     max-width: 440px;
-    padding: 40px;
+    padding: 50px 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
     border: 1px solid #e5e5e5;
     box-sizing: border-box;	
-	margin: auto auto; 
-	padding-top: 40px;
-	padding-bottom: 40px;
-	}
+	margin: 120px auto 60px auto; 
+}
 
 
