@@ -131,7 +131,7 @@
 
 .userTable td {
     padding: 14px 12px;
-    color: #444444;
+    color: rgb(255, 255, 255);
     border-bottom: 1px solid #ebeeef;
     text-align: left;
     white-space: nowrap; 
