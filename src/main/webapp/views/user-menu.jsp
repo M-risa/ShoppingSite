@@ -18,6 +18,8 @@
 	
 		<input type="button" value="登録情報変更" class = "btn-menu"
 			onclick="location.href='${pageContext.request.contextPath}/views/user-edit.jsp'">
+		<input type="button" value="パスワード変更" class = "btn-menu"
+			onclick="location.href='${pageContext.request.contextPath}/views/password-edit.jsp'">
 		<input type="button" value="退会" class = "btn-menu"
 			onclick="location.href='${pageContext.request.contextPath}/views/user-delete-confirm.jsp'">
 		

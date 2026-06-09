@@ -15,15 +15,17 @@
 
 	<div class = "admin-container">
 		<p class="welcome-text">【管理者モード】ようこそ、${user.lastName}さん！</p>
-	
-		<input type="submit" value="修正" class = "btn-menu">
-		<input type="submit" value="削除" class = "btn-menu">
 		
-		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/Logout.action" method="post">
-			<input type="submit" value="ログアウト" class = "btn-logout">
+		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminUserList.action" method="post">
+			<input type="submit" value="会員情報管理" class = "btn-menu">
 		</form>
+		
+			<input type="submit" value="商品管理" class = "btn-menu">
+			
+			<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/Logout.action" method="post">
+				<input type="submit" value="ログアウト" class = "btn-logout">
+			</form>
 	</div>
 
-<%@ include file="footer.jsp" %>
 </body>
 </html>

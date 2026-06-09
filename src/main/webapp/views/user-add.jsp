@@ -20,25 +20,25 @@
 	        </p>
 	    <% } %>
 	
-		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserAdd.action" method="post">
+		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserAdd.action" method="post" autocomplete="off">
 		<div class="input-group">
 			
 			<label for="memberId">ID</label>
 				<% if(request.getAttribute("idError") != null){ %>
 				<p class="error-message" style="color: #ff4444;">${idError}</p>
 		    	<% } %>
-			<input type="text" name="memberId" placeholder="例）M123456"><br>	
+			<input type="text" name="memberId" placeholder="例）M123456" autocomplete="off"><br>	
 				
 			<label for="password">パスワード</label>
 				<% if(request.getAttribute("passError") != null){ %>
 				<p class="error-message" style="color: #ff4444;">${passError}</p>
 		    	<% } %>
-			<input type="password" name="password"><br>
+			<input type="password" name="password" autocomplete="off"><br>
 				
-			<label for="lastName">名前（姓）</label>
+			<label for="lastName">氏名（姓）</label>
 			<input type="text" name="lastName" placeholder="例）山田"><br>
 				
-			<label for="firstName">名前（名）</label>
+			<label for="firstName">氏名（名）</label>
 			<input type="text" name="firstName" placeholder="例）太郎"><br>
 				
 				

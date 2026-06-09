@@ -24,8 +24,8 @@
 			<input type="hidden" name="address" value="${editUser.getaddress()}">
 			<input type="hidden" name="mailAddress" value="${editUser.getmailAddress()}">
 			
-			<p>名前（姓）：${editUser.getlastName()}</p>
-			<p>名前（名）：${editUser.getfirstName()}</p>
+			<p>氏名（姓）：${editUser.getlastName()}</p>
+			<p>氏名（名）：${editUser.getfirstName()}</p>
 			<p>住所：${editUser.getaddress()}</p>
 			<p>メールアドレス：${editUser.getmailAddress()}</p>
 			

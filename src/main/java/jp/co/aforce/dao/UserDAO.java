@@ -111,5 +111,49 @@ public class UserDAO extends DAO {
 	    
 	    return line;
 	}
+	
+	//パスワード変更
+	public int updatePassword(String memberId, String newPassword) throws Exception{
+		Connection con=getConnection();
+		String sql = "UPDATE users SET PASSWORD = ?, UPDATE_DATE = NOW() WHERE MEMBER_ID = ?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, newPassword);
+		st.setString(2, memberId);
+		
+int line = st.executeUpdate();
+	    
+	    st.close();
+	    con.close();
+	    
+	    return line;
+	}
+	
+	//会員情報を取得するメゾット
+	public java.util.List<UserBeans> selectAll() throws Exception{
+		java.util.List<UserBeans> list = new java.util.ArrayList<>();
+		Connection con=getConnection();
+		String sql = "SELECT * FROM users ORDER BY MEMBER_ID ASC";
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+			UserBeans user =new UserBeans();
+			user.setmemberId(rs.getString("MEMBER_ID"));
+			user.setpassword(rs.getString("PASSWORD"));
+			user.setlastName(rs.getString("LAST_NAME"));
+			user.setfirstName(rs.getString("FIRST_NAME"));
+			user.setaddress(rs.getString("ADDRESS"));
+			user.setmailAddress(rs.getString("MAIL_ADDRESS"));
+			user.setRole(rs.getInt("role"));
+		    user.setregistDate(rs.getString("REGIST_DATE"));
+		    
+		    list.add(user);
+		}
+		
+		st.close();
+	    con.close();
+	    
+	    return list;
+	}
 
 }

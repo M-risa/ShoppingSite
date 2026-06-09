@@ -27,8 +27,8 @@
 			
 			<p>ユーザーID：${param.memberId}</p>
 			<p>パスワード：${param.password}</p>
-			<p>名前（姓）：${param.lastName}</p>
-			<p>名前（名）：${param.firstName}</p>
+			<p>氏名（姓）：${param.lastName}</p>
+			<p>氏名（名）：${param.firstName}</p>
 			<p>住所：${param.address}</p>
 			<p>メールアドレス：${param.mailAddress}</p>
 			

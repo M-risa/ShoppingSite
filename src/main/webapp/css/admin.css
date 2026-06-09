@@ -12,18 +12,15 @@
 }
 
 .admin-container {
-    max-width: 100%;
-	width: 100%;
-	max-width: 440px;
-	padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
     background-color: #1a1a1a;
     border: 1px solid #333333;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-	box-sizing: border-box;	
-	margin: auto auto; 
-	padding-top: 40px;
-	padding-bottom: 40px;
+    box-sizing: border-box; 
+    margin: 180px auto 60px auto; 
 }
 
 /* 管理者画面のタイトル */
@@ -79,21 +76,84 @@
 /* ログアウトボタン */
 .btn-logout {
 	display: block;
-	    width: 60%;
-	    margin: 0 auto;
-	    padding: 12px;
-	    background-color: transparent;
-	    color: #888888;
-	    border: 1px solid #444444;
-	    font-size: 13px;
-	    font-weight: 700;
-	    cursor: pointer;
-	    border-radius: 4px;
-	    transition: all 0.3s;
-	}
+	width: 60%;
+	margin: 0 auto;
+	padding: 12px;
+	background-color: transparent;
+	color: #888888;
+	border: 1px solid #444444;
+	font-size: 13px;
+	font-weight: 700;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: all 0.3s;
+}
 
 .btn-logout:hover {
 	background-color: rgba(255, 68, 68, 0.05);
-	    color: #ff4444;
-	    border-color: #ff4444;
-	}
+	color: #ff4444;
+	border-color: #ff4444;
+}
+	
+/* 会員情報管理テーブルのデザイン */
+
+.adminTableContainer {
+    width: 85%;
+    min-width: 500px;
+    max-width: 1200px;
+    padding: 40px;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    margin: 180px auto 60px auto;
+}
+
+.userTable {
+	width: 100%;
+	max-width: 900px; 
+	border-collapse: collapse;
+	font-size: 14px;
+	background-color: #262626;
+	margin: 25px auto 30px auto;
+}
+
+.userTable th {
+    background-color: #333333; 
+    color: #ffffff;
+    font-weight: 700;
+    padding: 14px 12px;
+    border-bottom: 2px solid #e50914;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.userTable td {
+    padding: 14px 12px;
+    color: #444444;
+    border-bottom: 1px solid #ebeeef;
+    text-align: left;
+    white-space: nowrap; 
+}
+
+/*戻るボタン*/
+.btn-back {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0a0a0a;
+    color: #cccccc;
+    border: 1px solid #444444;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+    margin: 0 auto;
+}
+.btn-back:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+

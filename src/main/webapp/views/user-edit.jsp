@@ -17,10 +17,10 @@
 		
 		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserEdit.action" method="post">
 			<div class="input-group">
-				<label for="lastName">名前（姓）</label>
+				<label for="lastName">氏名（姓）</label>
 				<input type="text" name="lastName" value="${user.getlastName()}" placeholder="例）山田" required><br>
 				
-				<label for="firstName">名前（名）</label>
+				<label for="firstName">氏名（名）</label>
 				<input type="text" name="firstName" value="${user.getfirstName()}" placeholder="例）太郎" required><br>
 				
 				<% if(request.getAttribute("addressError") != null){ %>
