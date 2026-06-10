@@ -7,7 +7,7 @@
 <title>管理者メニュー</title>
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/common.css">
+	href="${pageContext.request.contextPath}/css/admin-common.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin.css">
 
@@ -25,8 +25,8 @@
 		</form>
 
 		<form
-			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductList.action.action"
-			method="post"
+			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductList.action"
+			method="post">
 			<input type="submit" value="商品管理" class="btn-menu">
 		</form>
 		

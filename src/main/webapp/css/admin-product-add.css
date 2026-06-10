@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+
+/* 登録画面専用のメインコンテナ */
+.adminMainContainer {
+	width: 100%;
+	max-width: 500px;
+	padding: 50px 40px;
+	background-color: #1a1a1a;
+	border: 1px solid #333333;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+	margin: 150px auto 60px auto;
+}
+
+/* タイトル */
+.adminMainContainer h2 {
+	font-size: 18px;
+	font-weight: 700;
+	color: #ffffff;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 30px;
+	border-bottom: 2px solid #e50914;
+	padding-bottom: 12px;
+}
+
+/* 各入力項目の枠組み*/
+.form-group {
+	margin-bottom: 28px;
+	text-align: left;
+}
+
+/* 項目ラベル（商品名、価格など） */
+.form-group label {
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+	color: #cccccc;
+	margin-bottom: 8px;
+	text-align: left;
+}
+
+/* テキスト入力欄（input[type="text"]） */
+.form-group input[type="text"] {
+	width: 100%;
+	padding: 12px;
+	font-size: 14px;
+	border: 1px solid #444444;
+	background-color: #262626;
+	color: #ffffff;
+	box-sizing: border-box;
+	transition: all 0.3s;
+}
+
+/* 入力欄をクリック（フォーカス）した時の黒線エフェクト */
+.form-group input[type="text"]:focus {
+	border-color: #ffffff;
+	background-color: #333333;
+	outline: none;
+	box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* プレースホルダー */
+.form-group input[type="text"]::placeholder {
+	color: #777777;
+	font-size: 13px;
+}
+
+/* カテゴリーや在庫数のラジオボタンを包むエリア */
+.radio-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	padding: 12px;
+	background-color: #262626;
+	border: 1px solid #444444;
+	box-sizing: border-box;
+}
+
+/* ラジオボタン内の各ラベル */
+.radio-group label {
+	display: inline-flex;
+	align-items: center;
+	font-size: 13px;
+	font-weight: 500;
+	color: #ffffff;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+
+/* ラジオボタン自体の色 */
+.radio-group input[type="radio"] {
+	margin-right: 6px;
+	accent-color: #e50914;
+	cursor: pointer;
+}
+
+/* 🔳 確認ボタン（送信ボタン） */
+.btn-edit {
+	display: block;
+	width: 100%;
+	margin: 40px auto 16px auto;
+	padding: 16px;
+	background-color: #0a0a0a;
+	color: #cccccc;
+	border: 1px solid #444444;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: all 0.3s;
+}
+
+/* 確認ボタンホバー時：白反転 */
+.btn-edit:hover {
+	background-color: #ffffff;
+	color: #000000;
+	border-color: #ffffff;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ↩️ 戻るボタン */
+.btn-back {
+	display: block;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 16px;
+	background-color: transparent;
+	color: #888888;
+	border: 1px solid #444444;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: all 0.3s;
+	box-sizing: border-box;
+}
+
+/* 戻るボタンホバー時 */
+.btn-back:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+	color: #ffffff;
+	border-color: #888888;
+}

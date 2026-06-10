@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>登録完了 | shoppingSite</title>
 
 </head>

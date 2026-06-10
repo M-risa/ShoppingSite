@@ -40,6 +40,7 @@ public class UserDAO extends DAO {
 	return user;
 	
 	}
+	
 	//会員情報登録
 	
 	//重複チェック
@@ -128,7 +129,7 @@ int line = st.executeUpdate();
 	    return line;
 	}
 	
-	//会員情報を取得するメゾット
+	//会員情報を取得する
 	public java.util.List<UserBeans> selectAll() throws Exception{
 		java.util.List<UserBeans> list = new java.util.ArrayList<>();
 		Connection con=getConnection();

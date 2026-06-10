@@ -44,6 +44,7 @@ public class UserEditAction extends Action{
 		//住所の文字制限
 		if(address.length() < 5) {
 			request.setAttribute("addressError", "住所は都道府県から正確に入力してください。");
+			hasError = true;
 			}
 		
 		if(hasError) {

@@ -52,10 +52,10 @@ public class UserAddAction extends Action {
 		}
 
 		// メールアドレスに「@」が含まれていなければエラー
-		if (mailAddress.startsWith("@") || mailAddress.endsWith(mailAddress)) {
-			request.setAttribute("mailError", "メールアドレスの形式が正しくありません。");
-			hasError = true;
-		}
+//		if (mailAddress.startsWith("@") || mailAddress.endsWith(mailAddress)) {
+//			request.setAttribute("mailError", "メールアドレスの形式が正しくありません。");
+//			hasError = true;
+//		}
 
 		//住所の文字制限
 		if (address.length() < 5) {

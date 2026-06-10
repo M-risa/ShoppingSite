@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>新規商品登録</title>
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/admin-common.css">
+	<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/admin-product-add.css">
+	
 </head>
 <body id ="admin-body"><%@include file="header.jsp" %>
 

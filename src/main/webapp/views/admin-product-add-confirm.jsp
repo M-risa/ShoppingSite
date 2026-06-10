@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>管理者 - 登録内容確認</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/common.css">
+	href="${pageContext.request.contextPath}/css/admin-common.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-product.css">
 </head>
