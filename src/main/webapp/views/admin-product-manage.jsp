@@ -20,6 +20,7 @@
 		<%
 		List<ProductBeans> productList = (List<ProductBeans>) request.getAttribute("productList");
 		if (productList != null && !productList.isEmpty()) {
+			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm");
 			for (ProductBeans product : productList) {
 				// カテゴリ表示用の日本語変換
 				String catDisplay = "その他周辺機器";
@@ -54,6 +55,10 @@
 				<div class="productCategory-tag"><%= catDisplay %></div>
 				<div class="productSpacText">
 					<%= (product.getSpec() != null && !product.getSpec().isEmpty()) ? product.getSpec() : "仕様詳細なし" %>
+				</div>
+				<div class="productDatesArea">
+					<div>登録日：<%= product.getRegistDate() != null ? product.getRegistDate().replaceAll("\\.\\d+$", "") : "-" %></div>
+					<div>更新日：<%= product.getUpdateDate() != null ? product.getUpdateDate().replaceAll("\\.\\d+$", "") : "-" %></div>
 				</div>
 			</div>
 

@@ -30,7 +30,7 @@ public class ProductDAO extends DAO {
 
 	}
 
-	//会員情報を取得する
+	//商品情報を取得する
 	public java.util.List<ProductBeans> selectAll() throws Exception{
 		java.util.List<ProductBeans> list = new java.util.ArrayList<>();
 		Connection con=getConnection();
@@ -47,6 +47,8 @@ public class ProductDAO extends DAO {
 			product.setSpec(rs.getString("SPEC"));
 			product.setStock(rs.getInt("STOCK"));
 			product.setImageUrl(rs.getString("image_url"));
+			product.setRegistDate(rs.getString("REGIST_DATE"));
+			product.setUpdateDate(rs.getString("UPDATE_DATE"));
 			
 			list.add(product);
 		}

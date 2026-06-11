@@ -19,7 +19,7 @@ public class AdminProductAddConfirmAction extends Action {
 			int price = Integer.parseInt(request.getParameter("price"));
 			String category = request.getParameter("category");
 			String spec = request.getParameter("spec");
-			int stock = Integer.getInteger(request.getParameter("stock"));
+			int stock = Integer.parseInt(request.getParameter("stock"));
 			String imageUrl = request.getParameter("imageUrl");
 
 			ProductBeans product = new ProductBeans();
@@ -34,7 +34,8 @@ public class AdminProductAddConfirmAction extends Action {
 			int result = dao.insertProduct(product);
 
 			if(result > 0) {
-				return "redirect:/views/admin-success-product-add-success.jsp";
+				request.setAttribute("isSuccess", true);
+				return "/views/admin-product-add-confirm.jsp";
 			} else {
 				request.setAttribute("error", "登録に失敗しました。");
 				return "/views/admin-product-add.jsp";

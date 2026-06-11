@@ -51,16 +51,18 @@ public class UserAddAction extends Action {
 			hasError = true;
 		}
 
-		// メールアドレスに「@」が含まれていなければエラー
-//		if (mailAddress.startsWith("@") || mailAddress.endsWith(mailAddress)) {
-//			request.setAttribute("mailError", "メールアドレスの形式が正しくありません。");
-//			hasError = true;
-//		}
-
 		//住所の文字制限
 		if (address.length() < 5) {
 			request.setAttribute("addressError", "住所は都道府県から正確に入力してください。");
 		}
+
+
+		// メールアドレスに「@」が含まれていなければエラー
+		if (!mailAddress.contains("@") || mailAddress.startsWith("@") || mailAddress.endsWith("@")) {
+			request.setAttribute("mailError", "メールアドレスの形式が正しくありません。");
+			hasError = true;
+		}
+
 
 		if (hasError) {
 			return "/views/user-add.jsp";

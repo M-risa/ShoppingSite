@@ -8,7 +8,7 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-common.css">
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-product-add.css">
 	
 </head>
@@ -63,7 +63,7 @@
 			</form>
 				
 				<input type="button" value="商品管理画面に戻る" class="btn-back"
-					onclick="location.href='${pageContext.request.contextPath}/views/admin-product-manage.jsp'">
+					onclick="location.href='${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductList.action'">
 			
     </div>
 <body>

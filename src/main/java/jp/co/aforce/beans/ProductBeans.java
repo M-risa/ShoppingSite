@@ -12,6 +12,8 @@ public class ProductBeans implements Serializable{
 	private String spec;
 	private int stock;
 	private String imageUrl;
+	private String registDate; 
+	private String updateDate;
 	
 	public ProductBeans() {}
 	
@@ -35,6 +37,14 @@ public class ProductBeans implements Serializable{
 	
 	public String getImageUrl() { return imageUrl; }
 	public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+	
+	public String getRegistDate() { return registDate; }
+	public void setRegistDate(String registDate) { this.registDate = registDate; }
+	
+	
+	public String getUpdateDate() { return updateDate; }
+	public void setUpdateDate(String updateDate) { this.updateDate = updateDate; }
+	
 
 
 
