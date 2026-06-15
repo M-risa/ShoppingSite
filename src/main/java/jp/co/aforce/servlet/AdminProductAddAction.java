@@ -17,12 +17,20 @@ public class AdminProductAddAction extends Action {
 		String spec = request.getParameter("spec");
 		String stockStr = request.getParameter("stock");
 		String imageUrl = request.getParameter("imageUrl");
+		
+		//ストックのその他の入力情報を取得
+		String stockCustomStr = request.getParameter("stock_custom");
+		String finalStockStr = stockStr;
+		
+		if("other".equals(stockStr)) {
+			finalStockStr = stockCustomStr;
+		}
 
 		request.setAttribute("productName", productName);
 		request.setAttribute("price", priceStr);
 		request.setAttribute("category", category);
 		request.setAttribute("spec", spec);
-		request.setAttribute("stock", stockStr);
+		request.setAttribute("stock", finalStockStr);
 		request.setAttribute("imageUrl", imageUrl);
 
 		boolean hasError = false;
@@ -30,7 +38,7 @@ public class AdminProductAddAction extends Action {
 		if(productName == null || productName.isEmpty()||
 				priceStr == null || priceStr.isEmpty() ||
 				category == null || category.isEmpty() ||
-				stockStr == null || stockStr.isEmpty()) {
+				stockStr == null || finalStockStr.isEmpty()) {
 
 			request.setAttribute("error", "必須項目をすべて入力・選択してください。");
 			hasError = true;
@@ -41,6 +49,13 @@ public class AdminProductAddAction extends Action {
 				request.setAttribute("priceError", "価格は半角数字のみで入力してください。");
 				hasError = true;
 			}
+		
+		if(finalStockStr != null && !finalStockStr.isEmpty()) {
+			if(!finalStockStr.matches("^[0-9]+$")) {
+				request.setAttribute("stockError", "在庫数は半角数字のみで入力してください。");
+				hasError = true;
+			}
+		}
 		}
 		
 		if(hasError) {

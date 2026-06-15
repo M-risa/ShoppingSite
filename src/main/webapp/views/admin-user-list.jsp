@@ -29,6 +29,7 @@
 						<th>メールアドレス</th>
 						<th>権限</th>
 						<th>登録日</th>
+						<th>更新日</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,6 +45,7 @@
 						<td><%=user.getmailAddress()%></td>
 						<td><%=user.getRole() == 1 ? "管理者" : "一般"%></td>
 						<td><%=user.getregistDate()%></td>
+						<td><%=user.getupdateDate()%></td>
 					</tr>
 					<%
 					}

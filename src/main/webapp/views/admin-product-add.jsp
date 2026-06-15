@@ -51,6 +51,10 @@
                     <label><input type="radio" name="stock" value="10"> 10個</label>
                     <label><input type="radio" name="stock" value="20"> 20個</label>
                     <label><input type="radio" name="stock" value="50"> 50個</label>
+                    <label class="other-option">
+                    	<input type="radio" name="stock" value="other" id="stock-other">その他
+                    	<input type="number" name="stock_custom" id="stockCustomInput" min="1" placeholder="例：100">個
+                    </label>
                 </div>
             </div>
 

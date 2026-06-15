@@ -147,6 +147,7 @@ int line = st.executeUpdate();
 			user.setmailAddress(rs.getString("MAIL_ADDRESS"));
 			user.setRole(rs.getInt("role"));
 		    user.setregistDate(rs.getString("REGIST_DATE"));
+		    user.setupdateDate(rs.getString("UPDATE_DATE"));
 		    
 		    list.add(user);
 		}
