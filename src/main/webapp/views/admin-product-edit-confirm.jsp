@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理者 - 登録内容確認</title>
+<title>管理者 - 編集内容確認</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-common.css">
@@ -17,12 +17,18 @@
 	
 
 	<div class="adminMainContainer">
-		<h2>登録内容の確認</h2>
-		<p>以下の内容で商品を登録します。</p>
+		<h2>編集内容の確認</h2>
+		<p>以下の内容で商品を更新します。</p>
 
 		<form
-			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductAddConfirm.action"
+			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductEditConfirm.action"
 			method="post" class="register-form">
+			
+			<div class="confirm-group">
+				<span class="confirm-label">商品ID：</span>
+				<span class="confirm-value" style="font-weight: bold;">${productId}</span>
+				<input type="hidden" name="productId" value="${productId}">
+			</div>
 
 			<div class="confirm-group">
 				<span class="confirm-label">商品名：</span>
@@ -86,11 +92,10 @@
 	%>
 	<div id="successModal" class="modalOverlay">
 		<div class="modalBox">
-			<h3>商品登録完了</h3>
-			<p>データベースへの登録が正常に完了しました！</p>
+			<h3>商品更新完了</h3>
+			<p>データベースへの更新が正常に完了しました！</p>
 
 			<div class="modalButtons">
-				<button type="button" id="btn-add" class="btn-modal-primary">続けて商品を登録する</button>
 				<button type="button" id="btn-manage" class="btn-modal-secondary">商品管理画面に戻る</button>
 			</div>
 		</div>

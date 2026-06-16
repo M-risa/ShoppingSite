@@ -12,12 +12,12 @@
 	href="${pageContext.request.contextPath}/css/admin-product-add.css">
 	
 </head>
-<body id ="admin-body"><%@include file="header.jsp" %>
+<body id ="admin-body">
 
 	<div class="adminMainContainer">
 		<h2>新規商品登録</h2>
 		
-			<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductAdd.action" method="post" class="register-form">
+			<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductAdd.action" method="post" class="register-form" enctype="multipart/form-data">
 			
 				<div class="form-group">
                 <label for="productName">商品名</label>
@@ -59,8 +59,8 @@
             </div>
 
             <div class="form-group">
-                <label for="imageUrl">商品画像URL</label>
-                <input type="text" id="imageUrl" name="imageUrl" placeholder="https://example.com/image.png (ネット上の画像URLを貼り付け)">
+                <label for="imageUrl">商品画像アップロード</label>
+                <input type="file" id="imageFile" name="imageFile" accept="image/*" required>
             </div>
 
             <input type="submit" value="確認" class="btn-edit">

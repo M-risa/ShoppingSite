@@ -13,7 +13,7 @@
 
 </head>
 
-<body id="admin-body"><%@include file="header.jsp"%>
+<body id="admin-body">
 
 	<div class="admin-container">
 		<p class="welcome-text">【管理者モード】ようこそ、${user.lastName}さん！</p>

@@ -5,12 +5,13 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import jp.co.aforce.tool.Action;
 
-public class AdminProductAddAction extends Action {
+public class AdminProductEditAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response
 			) throws Exception {
-
+		
+		String productIdStr = request.getParameter("productId");
 		String productName = request.getParameter("productName");
 		String priceStr = request.getParameter("price");
 		String category = request.getParameter("category");
@@ -26,6 +27,7 @@ public class AdminProductAddAction extends Action {
 			finalStockStr = stockCustomStr;
 		}
 
+		request.setAttribute("productId", productIdStr);
 		request.setAttribute("productName", productName);
 		request.setAttribute("price", priceStr);
 		request.setAttribute("category", category);
@@ -60,10 +62,9 @@ public class AdminProductAddAction extends Action {
 		
 		
 		if(hasError) {
-			return "/views/admin-product-add.jsp";
+			return "/views/admin-product-edit.jsp";
 		}
-		return "/views/admin-product-add-confirm.jsp";
-
-
+		return "/views/admin-product-edit-confirm.jsp";
 	}
+
 }

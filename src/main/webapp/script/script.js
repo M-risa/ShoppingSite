@@ -38,3 +38,59 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+
+const scriptEl = document.getElementById('adminScript');
+const contextPath = scriptEl.getAttribute('data-context-path');
+
+//編集ボタン
+function goToEdit(){
+	const form = document.getElementById('productActionForm');
+	const checkedRadio = document.querySelector('input[name="selectProductId"]:checked'); //ラジオボタンで選択されているもの
+	
+	if(!checkedRadio){
+		alert('編集する商品を選択してください');
+		return;
+	}
+	
+	form.submit(); //action.javaに送る
+}
+
+//削除ボタン
+function deleteOnTheSpot(){
+	const checkedRadio = document.querySelector('input[name="selectProductId"]:checked');
+	
+	if(!checkedRadio){
+		alert('削除する商品を選択してください。');
+		return;
+	}
+	
+	const productId = checkedRadio.value;
+	
+	if(confirm(`商品ID：${productId}の商品を本当に削除しますか？`)){
+		
+		//Fetch API(非同期通信)・画面を切り替えることなく、actionへ走らせる
+		fetch(`${contextPath}/jp/co/aforce/servlet/AdminProductDelete.action`,{
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			body: `selectProductId=${productId}`
+		})
+		.then(response => {
+			if(response.ok){
+				const targetCard = document.getElementById(`product-${productId}`);
+				if(targetCard){
+					targetCard.remove();
+					alert('商品を削除しました');
+				}
+			} else{
+				alert('削除に失敗しました');
+			}
+		})
+		.catch(error => {
+			console.error('Error:', error);
+			alert('通信エラーが発生しました。');
+		});
+	}
+}

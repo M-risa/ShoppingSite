@@ -14,7 +14,7 @@
 	href="${pageContext.request.contextPath}/css/admin-user-list.css">
 
 </head>
-<body id="admin-body"><%@include file="header.jsp"%>
+<body id="admin-body">
 
 	<div class="adminTableContainer">
 		<h2>会員情報管理</h2>
