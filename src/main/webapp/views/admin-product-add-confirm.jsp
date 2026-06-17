@@ -22,7 +22,7 @@
 
 		<form
 			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductAddConfirm.action"
-			method="post" class="register-form">
+			method="post" class="register-form" enctype="multipart/form-data">
 
 			<div class="confirm-group">
 				<span class="confirm-label">商品名：</span>
@@ -71,8 +71,11 @@
 			</div>
 
 			<div class="confirm-group">
-				<span class="confirm-label">商品画像URL：</span>
-				<span class="confirm-value" style="word-break: break-all;">${imageUrl}</span>
+				<span class="confirm-label">登録した画像：</span>
+				<div class="confirm-value">
+					<img src="${pageContext.request.contextPath}/uploaded-images/${imageUrl}" alt="プレビュー" class="confirm-preview-img"><br>
+					<span style="font-size: 0.85em; color: #666; word-break: break-all;">${imageUrl}</span>
+				</div>
 				<input type="hidden" name="imageUrl" value="${imageUrl}">
 			</div>
 

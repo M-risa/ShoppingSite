@@ -24,10 +24,18 @@ if (product != null) {
 
 	<div class="adminMainContainer">
 		<h2>商品情報編集</h2>
+		<%
+		if (request.getAttribute("error") != null) {
+		%>
+		<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
+			${error}</p>
+		<%
+		}
+		%>
 
 		<form
 			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductEdit.action"
-			method="post" class="register-form">
+			method="post" class="register-form" enctype="multipart/form-data">
 
 			<input type="hidden" name="productId"
 				value="<%=product.getProductId()%>">
@@ -44,8 +52,16 @@ if (product != null) {
 			</div>
 
 			<div class="form-group">
-				<label for="price">価格 (円)</label> <input type="text" id="price"
-					name="price" value="<%= product.getPrice() %>" required>
+				<label for="price">価格 (円)</label>
+				<%
+				if (request.getAttribute("priceError") != null) {
+				%>
+				<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
+					${priceError}</p>
+				<%
+				}
+				%>
+				<input type="text" id="price" name="price" value="<%= product.getPrice() %>" required>
 			</div>
 
 			<div class="form-group">
@@ -65,6 +81,14 @@ if (product != null) {
 
 			<div class="form-group">
 				<label>初期在庫数（ストック）</label>
+				<%
+				if (request.getAttribute("stockError") != null) {
+				%>
+				<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
+					${stockError}</p>
+				<%
+				}
+				%>
 				<div class="radio-group">
 					<label><input type="radio" name="stock" value="5" <%= product.getStock() == 5 ? "checked" : "" %>> 5個</label>
 					<label><input type="radio" name="stock" value="10" <%= product.getStock() == 10 ? "checked" : "" %>> 10個</label>
@@ -79,9 +103,8 @@ if (product != null) {
 			</div>
 
 			<div class="form-group">
-				<label for="imageUrl">商品画像URL</label>
-				<input type="text" id="imageUrl" name="imageUrl"
-					value="<%= product.getImageUrl() != null ? product.getImageUrl() : "" %>">
+				<label for="imageFile">商品画像アップロード</label>
+    			<input type="file" id="imageFile" name="imageFile" accept="image/*">
 			</div>
 
 			<input type="submit" value="確認" class="btn-edit">

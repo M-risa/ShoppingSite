@@ -3,6 +3,8 @@ package jp.co.aforce.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import jp.co.aforce.beans.ProductBeans;
 
@@ -58,6 +60,52 @@ public class ProductDAO extends DAO {
 	    
 	    return list;
 
+	}
+	
+	//商品検索
+	public List<ProductBeans> searchProduct(String keyword, String category) throws Exception{
+		List<ProductBeans> list = new ArrayList<>();
+		Connection con = getConnection();
+		StringBuilder sql = new StringBuilder("SELECT * FROM products WHERE 1=1");
+		
+		if(keyword != null && !keyword.trim().isEmpty()) {
+			sql.append(" AND (product_name LIKE ? OR spec LIKE ?)");
+		}
+		
+		if(category != null && !category.trim().isEmpty()) {
+			sql.append(" AND category = ?");
+		}
+		
+		PreparedStatement st = con.prepareStatement(sql.toString());
+		int paramIndex = 1;
+		
+		if(keyword != null && !keyword.trim().isEmpty()) {
+			String likeStr = "%" + keyword + "%";
+			st.setString(paramIndex++, likeStr);
+			st.setString(paramIndex++, likeStr);
+		}
+		if (category != null && !category.trim().isEmpty()) {
+	        st.setString(paramIndex++, category);
+		}
+		
+		ResultSet rs = st.executeQuery();
+		while(rs.next()) {
+			ProductBeans product = new ProductBeans();
+			product.setProductId(rs.getInt("PRODUCT_ID"));
+			product.setProductName(rs.getString("PRODUCT_NAME"));
+			product.setPrice(rs.getInt("PRICE"));
+			product.setCategory(rs.getString("CATEGORY"));
+			product.setSpec(rs.getString("SPEC"));
+			product.setStock(rs.getInt("STOCK"));
+			product.setImageUrl(rs.getString("image_url"));
+			list.add(product);
+		}
+		rs.close();
+	    st.close();
+	    con.close();
+	    
+	    return list;
+			
 	}
 	
 	/**

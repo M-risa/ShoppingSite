@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+.product-main-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 95px auto 60px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.product-filter-bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 0;
+    margin-bottom: 40px;
+}
+.product-filter-form, .filter-group-horizontal {
+    display: flex;
+    align-items: center;
+}
+.product-filter-form { justify-content: space-between; }
+.filter-group-horizontal { gap: 30px; }
+.filter-group-label { font-size: 12px; font-weight: 900; color: #000000; letter-spacing: 0.1em; }
+.product-checkbox-label { font-size: 11px; color: #000000; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+
+.btn-filter-apply {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-filter-apply:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.product-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.product-result-count { font-size: 12px; color: #666666; font-weight: 700; }
+.product-result-count strong { color: #000000; font-size: 14px; }
+
+.btn-product-compare {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+    padding: 8px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-product-compare:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+}
+
+/* スペックカード */
+.spec-card {
+    background-color: #f8f9fa; 
+    width: calc(50% - 15px);   
+    min-width: 340px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px;
+    position: relative;        
+    transition: background-color 0.3s;
+}
+.spec-card:hover {
+    background-color: #f1f2f4; 
+}
+
+/* 四隅のシャープなカギ括弧マーク */
+.corner-mark {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+.top-left     { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.top-right    { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+.bottom-left  { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+.bottom-right { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+/* 比較チェックボックスの配置 */
+.card-checkbox-row {
+    text-align: left;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+.compare-checkbox-label {
+    font-size: 11px;
+    color: #666666;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* 商品画像ボックス */
+.product-img-box {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    background-color: #e9ecef; 
+    font-size: 14px;
+    color: #cccccc;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+.product-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* 商品詳細エリア */
+.product-info-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* 商品タイトル名 */
+.product-title-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: #000000;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.03em;
+}
+
+/* スペックテキスト */
+.product-spec-text {
+    font-size: 12px;
+    color: #444444;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    white-space: pre-line; 
+    width: 100%;
+}
+
+/* 下端に固定するエリア */
+.product-card-bottom {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 価格表示 */
+.product-price-display {
+    font-size: 22px;
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: 0.05em;
+}
+
+/* ボタン */
+.btn-view-detail {
+    display: inline-block;
+    width: 100%;
+    max-width: 200px;
+    background-color: #ff0014; 
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s;
+    border: 1px solid #ff0014;
+    text-align: center;
+}
+.btn-view-detail:hover {
+    background-color: #d60010;
+    border-color: #d60010;
+}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 //総合窓口、処理の受け渡し役
 
 @WebServlet(urlPatterns={"*.action"})
+@MultipartConfig
 public class FrontController extends HttpServlet {
 	
 	public void doPost(

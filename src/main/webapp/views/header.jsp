@@ -11,13 +11,28 @@
  %>
 
 <header class = "site-header">
-	<a href = "${pageContext.request.contextPath}/views/login-in.jsp" class="header-logo">shoppingSite</a>
+	<a href = "${pageContext.request.contextPath}/jp/co/aforce/servlet/Home.action" class="header-logo">Setup Lab</a>
+
+	<div class="header-search">
+		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/ProductSearch.action"
+			method="get" class="header-search-form">
+			<input type="text" name="keyword" placeholder="何をお探しですか？"
+				value="${param.keyword}">
+			<button type="submit" class="btn-header-search">検索</button>
+		</form>
+	</div>
+
+	<nav class = "header-nav">
+		<%
+		if (loginUser != null) {
+		%>
+		<span class="header-welcome">ようこそ、<%=loginUser.getlastName()%> 様</span>
+		<%
+		}
+		%>
 		
-		<nav class = "header-nav">
 		<a href="<%= myPageUrl %>">マイページ</a>
-		<a href = "#">お気に入り</a>
 		<a href = "#">カート</a>
-		<a href = "#" class = "nav-menu-btn">メニュー</a>
 		</nav>
 		
 </header>

@@ -16,8 +16,16 @@
 
 	<div class="adminMainContainer">
 		<h2>新規商品登録</h2>
-		
-			<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductAdd.action" method="post" class="register-form" enctype="multipart/form-data">
+		<%
+		if (request.getAttribute("error") != null) {
+		%>
+		<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
+			${error}</p>
+		<%
+		}
+		%>
+
+		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductAdd.action" method="post" class="register-form" enctype="multipart/form-data">
 			
 				<div class="form-group">
                 <label for="productName">商品名</label>
@@ -26,7 +34,15 @@
 
             <div class="form-group">
                 <label for="price">価格 (円)</label>
-                <input type="text" id="price" name="price" placeholder="例: 148000" required>
+				<%
+				if (request.getAttribute("priceError") != null) {
+				%>
+				<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
+					${priceError}</p>
+				<%
+				}
+				%>
+				<input type="text" id="price" name="price" placeholder="例: 148000" required>
             </div>
 
             <div class="form-group">
@@ -46,22 +62,30 @@
 
             <div class="form-group">
                 <label>初期在庫数（ストック）</label>
-                <div class="radio-group">
+				<%
+				if (request.getAttribute("stockError") != null) {
+				%>
+				<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
+					${stockError}</p>
+				<%
+				}
+				%>
+				<div class="radio-group">
                     <label><input type="radio" name="stock" value="5" checked> 5個</label>
                     <label><input type="radio" name="stock" value="10"> 10個</label>
                     <label><input type="radio" name="stock" value="20"> 20個</label>
                     <label><input type="radio" name="stock" value="50"> 50個</label>
                     <label class="other-option">
                     	<input type="radio" name="stock" value="other" id="stock-other">その他
-                    	<input type="number" name="stock_custom" id="stockCustomInput" min="1" placeholder="例：100">個
+                    	<input type="number" name="stock_custom" id="stockCustomInput" placeholder="例：100">個
                     </label>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="imageUrl">商品画像アップロード</label>
-                <input type="file" id="imageFile" name="imageFile" accept="image/*" required>
-            </div>
+				<label for="imageFile">商品画像アップロード</label>
+				<input type="file" id="imageFile" name="imageFile" accept="image/*">
+			</div>
 
             <input type="submit" value="確認" class="btn-edit">
 			</form>
@@ -70,7 +94,6 @@
 					onclick="location.href='${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductList.action'">
 			
     </div>
-<body>
 
 </body>
 </html>

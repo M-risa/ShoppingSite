@@ -96,6 +96,16 @@
 	cursor: pointer;
 }
 
+/* 編集・新規画面用のプレビュー画像スタイル */
+.confirm-preview-img {
+    width: 120px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    display: block;
+}
+
 /* 🔳 確認ボタン（送信ボタン） */
 .btn-edit {
 	display: block;

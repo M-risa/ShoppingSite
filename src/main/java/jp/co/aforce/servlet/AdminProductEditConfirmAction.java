@@ -1,5 +1,6 @@
 package jp.co.aforce.servlet;
 
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -7,6 +8,7 @@ import jp.co.aforce.beans.ProductBeans;
 import jp.co.aforce.dao.ProductDAO;
 import jp.co.aforce.tool.Action;
 
+@MultipartConfig
 public class AdminProductEditConfirmAction extends Action {
 
 	@Override

@@ -1,10 +1,13 @@
 package jp.co.aforce.servlet;
 
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 import jp.co.aforce.tool.Action;
 
+@MultipartConfig
 public class AdminProductAddAction extends Action {
 
 	@Override
@@ -16,14 +19,29 @@ public class AdminProductAddAction extends Action {
 		String category = request.getParameter("category");
 		String spec = request.getParameter("spec");
 		String stockStr = request.getParameter("stock");
-		String imageUrl = request.getParameter("imageUrl");
+		String stockCustomStr = request.getParameter("stock_custom");
+		
+		Part filePart = request.getPart("imageFile");
+		String fileName = null;
+		
+		if(filePart != null && filePart.getSize() > 0) {
+			fileName = filePart.getSubmittedFileName();
+			
+			String savePath = "C:\\upload_images";
+			java.io.File uploadDir = new java.io.File(savePath);
+			if (!uploadDir.exists()) { uploadDir.mkdir(); } // フォルダがなければ作成
+			filePart.write(savePath + java.io.File.separator + fileName); 
+			System.out.println("画像がフォルダに入りました: " + fileName);
+		}
+
 		
 		//ストックのその他の入力情報を取得
-		String stockCustomStr = request.getParameter("stock_custom");
-		String finalStockStr = stockStr;
+		String finalStockStr = "";
 		
 		if("other".equals(stockStr)) {
 			finalStockStr = stockCustomStr;
+		} else {
+			finalStockStr = stockStr;
 		}
 
 		request.setAttribute("productName", productName);
@@ -31,19 +49,18 @@ public class AdminProductAddAction extends Action {
 		request.setAttribute("category", category);
 		request.setAttribute("spec", spec);
 		request.setAttribute("stock", finalStockStr);
-		request.setAttribute("imageUrl", imageUrl);
+		request.setAttribute("imageUrl", fileName);
 
 		boolean hasError = false;
 
 		if(productName == null || productName.isEmpty()||
 				priceStr == null || priceStr.isEmpty() ||
-				category == null || category.isEmpty() ||
-				stockStr == null || finalStockStr.isEmpty()) {
+				category == null || category.isEmpty()) {
 
 			request.setAttribute("error", "必須項目をすべて入力・選択してください。");
 			hasError = true;
 		}
-
+		
 		if (priceStr != null && !priceStr.isEmpty()) {
 			if (!priceStr.matches("^[0-9]+$")) {
 				request.setAttribute("priceError", "価格は半角数字のみで入力してください。");
@@ -57,7 +74,6 @@ public class AdminProductAddAction extends Action {
 				hasError = true;
 			}
 		}
-		
 		
 		if(hasError) {
 			return "/views/admin-product-add.jsp";

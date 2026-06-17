@@ -28,7 +28,7 @@ public class LoginAction extends Action {
 			if(user.getRole()== 1) {
 			return "redirect:/views/admin-menu.jsp";
 			} else {
-			return "redirect:/views/user-menu.jsp";
+			return "/jp/co/aforce/servlet/Home.action";
 			}
 		}
 		return "/views/login-error.jsp";
