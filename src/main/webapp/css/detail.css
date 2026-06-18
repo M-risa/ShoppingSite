@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+/* 全体を包むコンテナ*/
+.detail-container {
+	max-width: 1200px;
+	width: 100%;
+	margin: 120px auto 60px auto;
+	padding: 0 40px;
+	box-sizing: border-box;
+	display: flex;
+	gap: 60px;
+	align-items: flex-start;
+}
+
+/*左側：商品画像ボックス設定 */
+.detail-left-box {
+	width: 50%;
+	background-color: #f8f9fa;
+	border: 1px solid #e5e5e5;
+	height: 450px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.detail-left-box img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.detail-no-image {
+	color: #cccccc;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/*右側：情報テキスト・ボタンエリア設定 */
+.detail-right-box {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+/* 商品名 */
+.detail-product-name {
+	font-size: 28px;
+	font-weight: 800;
+	color: #000000;
+	margin: 0 0 20px 0;
+	border-bottom: 2px solid #000000;
+	padding-bottom: 15px;
+}
+
+/* 商品詳細（スペック） */
+.detail-product-spec {
+	font-size: 14px;
+	color: #444444;
+	line-height: 1.8;
+	margin: 0 0 40px 0;
+	white-space: pre-line;
+}
+
+/* 値段表示エリア */
+.detail-price-row {
+	margin-bottom: 40px;
+	display: flex;
+	align-items: baseline;
+	gap: 15px;
+}
+
+.detail-price-label {
+	font-size: 12px;
+	color: #666666;
+	font-weight: bold;
+}
+
+.detail-price-value {
+	font-size: 32px;
+	font-weight: 900;
+	color: #000000;
+}
+
+.detail-stock-row {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.detail-stock-label {
+    font-size: 12px;
+    color: #666666;
+    font-weight: bold;
+}
+.detail-stock-value {
+    font-size: 16px;
+    color: #333333;
+    font-weight: bold;
+}
+/* 売り切れ時の赤文字アラート */
+.detail-stock-none {
+    font-size: 14px;
+    color: #ff0014;
+    font-weight: bold;
+}
+
+/* 売り切れ時にボタンをグレーにする設定 */
+.btn-disabled {
+    background-color: #cccccc !important;
+    color: #ffffff !important;
+    cursor: not-allowed !important;
+}
+
+/* 「カートに追加」ボタン */
+.btn-add-to-cart {
+	width: 100%;
+	max-width: 300px;
+	background-color: #000000;
+	color: #ffffff;
+	border: none;
+	padding: 15px 0;
+	font-size: 15px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.btn-add-to-cart:hover {
+	background-color: #333333;
+}

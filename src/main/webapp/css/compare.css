@@ -1,0 +1,160 @@
+.compare-main-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 120px auto 60px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.compare-main-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* テーブルのラッパー */
+.compare-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e5e5e5;
+    background-color: #ffffff;
+}
+
+/* 表自体の設定 */
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* 項目名*/
+.compare-table th {
+    width: 150px;
+    background-color: #f8f9fa;
+    color: #333333;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 20px;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* 各商品のデータ*/
+.compare-table td {
+    padding: 20px;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+    vertical-align: top;
+    background-color: #ffffff;
+}
+
+/* 末尾の境界線の調整 */
+.compare-table td:last-child {
+    border-right: none;
+}
+
+/* 各行固有のスタイル */
+.compare-img-box {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    border: 1px solid #f0f0f0;
+}
+.compare-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.compare-no-image {
+    color: #cccccc;
+    font-size: 12px;
+}
+
+/* 商品名 */
+.compare-product-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    text-align: left;
+}
+
+/* 価格 */
+.compare-product-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: #000000;
+    display: block;
+    text-align: left;
+}
+
+/* スペックテキスト */
+.compare-product-spec {
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* 詳細を表示ボタン */
+.btn-compare-detail {
+    display: inline-block;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 13px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+.btn-compare-detail:hover {
+    background-color: #333333;
+}
+
+/* 戻るリンク */
+.compare-bottom-actions {
+    margin-top: 30px;
+    text-align: left;
+}
+.link-back {
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+.link-back:hover {
+    text-decoration: underline;
+}
+
+/* 商品が選ばれていない時の箱 */
+.compare-empty-box {
+    text-align: center;
+    padding: 60px 0;
+    border: 1px dashed #cccccc;
+    background-color: #fafafa;
+}
+.compare-empty-box p {
+    color: #666666;
+    margin-bottom: 20px;
+}
+.btn-back-to-list {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}

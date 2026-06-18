@@ -23,32 +23,32 @@
 				method="get" class="product-filter-form">
 
 				<div class="filter-group-horizontal">
-					<span class="filter-group-label">FILTER:</span> <label
-						class="product-checkbox-label"> <input type="checkbox"
-						name="category" value="monitor"> MONITORS
-					</label> <label class="product-checkbox-label"> <input
-						type="checkbox" name="category" value="keyboard">
-						KEYBOARDS
-					</label> <label class="product-checkbox-label"> <input
-						type="checkbox" name="category" value="mouse"> MICE
+					<span class="filter-group-label">FILTER:</span>
+					<label class="product-checkbox-label">
+						<input type="checkbox" name="category" value="monitor"> モニター
+					</label> 
+					<label class="product-checkbox-label">
+						<input type="checkbox" name="category" value="keyboard">
+							キーボード
+					</label>
+					<label class="product-checkbox-label">
+						<input type="checkbox" name="category" value="mouse"> マウス
 					</label>
 				</div>
 
-				<button type="submit" class="btn-filter-apply">APPLY</button>
+				<button type="submit" class="btn-filter-apply">適用</button>
 			</form>
 		</div>
 
 		<main class="product-content-area">
-			<form
-				action="<%=request.getContextPath()%>/jp/co/aforce/servlet/ProductCompare.action"
+			<form action="<%=request.getContextPath()%>/jp/co/aforce/servlet/ProductCompare.action"
 				method="get">
 
 				<div class="product-content-header">
-					<span class="product-result-count">RESULTS: <strong>${productList.size()}</strong>
-						ITEMS
+					<span class="product-result-count">検索結果: <strong>${productList.size()}</strong>
+						件の商品が見つかりました
 					</span>
-					<button type="submit" class="btn-product-compare">COMPARE
-						SELECTED</button>
+					<button type="submit" class="btn-product-compare">比較する</button>
 				</div>
 
 				<div class="product-grid">

@@ -32,7 +32,7 @@
 		%>
 		
 		<a href="<%= myPageUrl %>">マイページ</a>
-		<a href = "#">カート</a>
+		<a href = "${pageContext.request.contextPath}/jp/co/aforce/servlet/CartView.action">カート</a>
 		</nav>
 		
 </header>

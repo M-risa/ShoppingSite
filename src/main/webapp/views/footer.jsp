@@ -6,6 +6,6 @@
 		<a href = "#">お問い合わせ</a>
 	</div>
 	
-	<p class="copyright">&copy; 2026 shoppingSite. All Rights Reserved.</p>
+	<p class="copyright">&copy; 2026 SETUP LAB. All Rights Reserved.</p>
 	
 </footer>

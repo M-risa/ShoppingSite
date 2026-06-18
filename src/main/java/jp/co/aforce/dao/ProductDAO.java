@@ -108,6 +108,33 @@ public class ProductDAO extends DAO {
 			
 	}
 	
+	//商品の詳細を取得する
+	public ProductBeans getProductById(int productId) throws Exception{
+		ProductBeans product = null;
+		Connection con = getConnection();
+		String sql = "SELECT * FROM products WHERE PRODUCT_ID = ?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, productId);
+		
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			product = new ProductBeans();
+			product.setProductId(rs.getInt("PRODUCT_ID"));
+			product.setProductName(rs.getString("PRODUCT_NAME"));
+			product.setPrice(rs.getInt("PRICE"));
+			product.setCategory(rs.getString("CATEGORY"));
+			product.setSpec(rs.getString("SPEC"));
+			product.setStock(rs.getInt("STOCK"));
+			product.setImageUrl(rs.getString("image_url"));
+		}
+		rs.close();
+		st.close();
+	    con.close();
+	    
+	    return product;
+	}
+	
 	/**
      * @param productId 削除する商品ID
      * @return 削除された行数

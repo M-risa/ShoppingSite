@@ -14,22 +14,22 @@
 <body id="page-body"><%@include file="header.jsp" %>
 	
 	<section class="home-section">
-		<h2 class="section-main-title">SHOP BY CATEGORY</h2>
+		<h2 class="section-main-title">カテゴリーから探す</h2>
 		<div class="category-grid">
 			
 			<a href="${pageContext.request.contextPath}/jp/co/aforce/servlet/ProductSearch.action?category=monitor" class="category-card">
 				<div class="category-img-placeholder">🖥️</div>
-				<span class="category-card-name">MONITORS</span>
+				<span class="category-card-name">モニター</span>
 			</a>
 			
 			<a href="${pageContext.request.contextPath}/jp/co/aforce/servlet/ProductSearch.action?category=keyboard" class="category-card">
 				<div class="category-img-placeholder">⌨️</div>
-				<span class="category-card-name">KEYBOARDS</span>
+				<span class="category-card-name">キーボード</span>
 			</a>
 			
 			<a href="${pageContext.request.contextPath}/jp/co/aforce/servlet/ProductSearch.action?category=mouse" class="category-card">
 				<div class="category-img-placeholder">🖱️</div>
-				<span class="category-card-name">MICE</span>
+				<span class="category-card-name">マウス</span>
 			</a>
 			
 		</div>
@@ -37,8 +37,8 @@
 
 	<section class="home-section bg-light">
 		<div class="section-header-row">
-			<h2 class="section-main-title">RECOMMENDED PRODUCTS</h2>
-			<a href="${pageContext.request.contextPath}/jp/co/aforce/servlet/Home.action" class="link-view-all">すべての製品 ➔</a>
+			<h2 class="section-main-title">おすすめ製品</h2>
+			<a href="${pageContext.request.contextPath}/jp/co/aforce/servlet/ProductSearch.action" class="link-view-all">すべての製品 ➔</a>
 		</div>
 
 		<div class="home-product-grid">
