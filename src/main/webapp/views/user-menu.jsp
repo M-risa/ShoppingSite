@@ -16,6 +16,9 @@
 	<div class = "common-container">
 		<p class="welcome-text">ようこそ、${user.lastName}さん！</p>
 	
+		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/OrderHistory.action" method="post">
+			<input type="submit" value="購入履歴" class = "btn-menu">
+		</form>
 		<input type="button" value="登録情報変更" class = "btn-menu"
 			onclick="location.href='${pageContext.request.contextPath}/views/user-edit.jsp'">
 		<input type="button" value="パスワード変更" class = "btn-menu"

@@ -51,11 +51,17 @@
     background-color: #000000;
     color: #ffffff;
     border: 1px solid #000000;
-    padding: 8px 18px;
+    padding: 12px 24px;
     font-size: 11px;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s;
+	
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	z-index: 1000;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 .btn-product-compare:hover {
     background-color: #ffffff;
@@ -105,11 +111,24 @@
     z-index: 2;
 }
 .compare-checkbox-label {
-    font-size: 11px;
-    color: #666666;
-    font-weight: 700;
-    cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	font-weight: 700;
+	color: #333333;
+	cursor: pointer;
+	user-select: none;
 }
+
+.compare-checkbox-label input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+	margin: 0;
+	vertical-align: middle;
+}
+
 
 /* 商品画像ボックス */
 .product-img-box {
@@ -196,4 +215,41 @@
 .btn-view-detail:hover {
     background-color: #d60010;
     border-color: #d60010;
+}
+
+/*  並び替えセレクトボックスのレイアウト調整 */
+.product-content-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	margin-bottom: 20px;
+}
+
+.product-sort-box {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-left: auto;
+}
+
+.sort-label {
+	font-size: 13px;
+	font-weight: 700;
+	color: #000000;
+}
+
+#sort-select {
+	padding: 8px 12px;
+	font-size: 13px;
+	font-weight: 600;
+	border: 2px solid #000000;
+	background-color: #ffffff;
+	color: #000000;
+	cursor: pointer;
+	outline: none;
+}
+
+#sort-select:focus {
+	background-color: #f0f0f0;
 }

@@ -31,6 +31,16 @@
 	text-align: left;
 }
 
+.product-id-text {
+	font-weight: bold;
+	color: #e5e5e5;
+	font-size: 1.2em;
+	letter-spacing: 1px;
+	display: inline-block;
+	padding-top: 5px;
+}
+
+
 /* 項目ラベル（商品名、価格など） */
 .form-group label {
 	display: block;
@@ -96,14 +106,31 @@
 	cursor: pointer;
 }
 
+/*テキストエリア*/
+#spec {
+	background-color: #222222;
+	color: #ffffff;
+	border: 1px solid #555555;
+	padding: 10px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	width: 100%;
+	resize: vertical;
+}
+
+#spec:focus {
+	outline: none;
+	border-color: #ffffff;
+}
+
 /* 編集・新規画面用のプレビュー画像スタイル */
 .confirm-preview-img {
-    width: 120px;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    display: block;
+	width: 120px;
+	height: auto;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	display: block;
 }
 
 /* 🔳 確認ボタン（送信ボタン） */
@@ -160,51 +187,49 @@
 }
 
 .modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-     background-color: rgba(0, 0, 0, 0.75); 
-     backdrop-filter: blur(4px); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; 
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(4px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
 }
 
-/* ==========================================================================
-   中央にパッと浮き出るポップアップ（はっきり移る本体）
-   ========================================================================== */
+
 .modalBox {
-    background-color: #1a1a1a;
-    border: 1px solid #444444;
-    padding: 40px;
-    border-radius: 8px;
-    text-align: center;
-    max-width: 400px;
-    width: 85%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+	background-color: #1a1a1a;
+	border: 1px solid #444444;
+	padding: 40px;
+	border-radius: 8px;
+	text-align: center;
+	max-width: 400px;
+	width: 85%;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 /* ポップアップ内の文字やボタンの微調整 */
 .modalBox h3 {
-    color: #ffffff;
-    margin-top: 0;
-    font-size: 20px;
-    border-bottom: 2px solid #e50914;
-    padding-bottom: 12px;
+	color: #ffffff;
+	margin-top: 0;
+	font-size: 20px;
+	border-bottom: 2px solid #e50914;
+	padding-bottom: 12px;
 }
 
 .modalBox p {
-    color: #e0e0e0;
-    font-size: 14px;
-    margin: 20px 0 30px 0;
+	color: #e0e0e0;
+	font-size: 14px;
+	margin: 20px 0 30px 0;
 }
 
 /* ポップのボタン */
 .modalButtons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }

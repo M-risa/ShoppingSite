@@ -41,8 +41,8 @@ if (product != null) {
 				value="<%=product.getProductId()%>">
 
 			<div class="form-group">
-				<label>商品ID</label> <span
-					style="font-weight: bold; color: #333; font-size: 1.1em;"><%=product.getProductId()%></span>
+				<label>商品ID</label>
+				<span class="product-id-text"><%=product.getProductId()%></span>
 			</div>
 
 			<div class="form-group">
@@ -76,7 +76,7 @@ if (product != null) {
 
 			<div class="form-group">
 				<label for="spec">スペック・仕様詳細</label>
-				<input type="text" id="spec" name="spec" value="<%= product.getSpec() != null ? product.getSpec() : "" %>">
+				<textarea id="spec" name="spec" rows="5"><%= product.getSpec() != null ? product.getSpec() : "" %></textarea>
 			</div>
 
 			<div class="form-group">
@@ -104,6 +104,7 @@ if (product != null) {
 
 			<div class="form-group">
 				<label for="imageFile">商品画像アップロード</label>
+				<input type="hidden" name="imageUrl" value="${product.imageUrl}">
     			<input type="file" id="imageFile" name="imageFile" accept="image/*">
 			</div>
 

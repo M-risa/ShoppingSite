@@ -18,8 +18,7 @@
 	<div class="product-main-container">
 
 		<div class="product-filter-bar">
-			<form
-				action="<%=request.getContextPath()%>/jp/co/aforce/servlet/ProductSearch.action"
+			<form action="<%=request.getContextPath()%>/jp/co/aforce/servlet/ProductSearch.action"
 				method="get" class="product-filter-form">
 
 				<div class="filter-group-horizontal">
@@ -28,8 +27,7 @@
 						<input type="checkbox" name="category" value="monitor"> モニター
 					</label> 
 					<label class="product-checkbox-label">
-						<input type="checkbox" name="category" value="keyboard">
-							キーボード
+						<input type="checkbox" name="category" value="keyboard">キーボード
 					</label>
 					<label class="product-checkbox-label">
 						<input type="checkbox" name="category" value="mouse"> マウス
@@ -48,6 +46,20 @@
 					<span class="product-result-count">検索結果: <strong>${productList.size()}</strong>
 						件の商品が見つかりました
 					</span>
+					
+					<div class="product-sort-box">
+						<label for="sort-select" class="sort-label">並び替え</label>
+						<select id="sort-select" name="sort" onchange="submitWithFilters(this)">
+							<option value="default" ${param.sort == 'default' ? 'selected' : '' }>新着順</option>
+							<option value="price_asc" ${param.sort == 'price_asc' ? 'selected' : '' }>価格の安い順</option>
+							<option value="price_desc" ${param.sort == 'price_desc' ? 'selected' : '' }>価格の高い順</option>
+							<option value="name_asc" ${param.sort == 'name_asc' ? 'selected' : '' }>商品名（昇順）</option>
+							<option value="name_desc" ${param.sort == 'name_desc' ? 'selected' : '' }>商品名（降順）</option>
+							<option value="category_asc" ${param.sort == 'category_asc' ? 'selected' : '' }>カテゴリー（昇順）</option>
+							<option value="category_desc" ${param.sort == 'category_desc' ? 'selected' : '' }>カテゴリー（降順）</option>
+						</select>
+					
+					</div>
 					<button type="submit" class="btn-product-compare">比較する</button>
 				</div>
 
@@ -102,6 +114,8 @@
 
 	</div>
 
+
+	<script src="${pageContext.request.contextPath}/script/script.js"></script>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

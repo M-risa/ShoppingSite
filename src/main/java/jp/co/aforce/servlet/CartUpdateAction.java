@@ -9,27 +9,35 @@ import jakarta.servlet.http.HttpSession;
 import jp.co.aforce.beans.CartItemBeans;
 import jp.co.aforce.tool.Action;
 
-public class CartRemoveAction extends Action {
+public class CartUpdateAction extends Action {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response
 			) throws Exception {
-
+		
 		HttpSession session = request.getSession();
 		List<CartItemBeans> cart = (List<CartItemBeans>) session.getAttribute("cart");
-
+		
 		String productIdStr = request.getParameter("productId");
-
-		if(cart != null && productIdStr != null && !productIdStr.isEmpty()) {
+		String countStr = request.getParameter("count");
+		
+		if(cart != null && productIdStr != null && countStr != null) {
 			int productId = Integer.parseInt(productIdStr);
-
-			cart.removeIf(item -> item.getProduct().getProductId() == productId);
+			int newCount = Integer.parseInt(countStr);
+			
+			for(CartItemBeans item : cart) {
+				if(item.getProduct().getProductId() == productId) {
+					item.setCount(newCount);
+					break;
+				}
+			}
+					
 		}
-
 		session.setAttribute("cart", cart);
-	
-		return "/views/cart.jsp";
+		
+		return "/jp/co/aforce/servlet/CartView.action";
+		
 	}
 
 }

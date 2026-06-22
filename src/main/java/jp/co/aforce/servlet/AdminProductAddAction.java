@@ -50,6 +50,7 @@ public class AdminProductAddAction extends Action {
 		request.setAttribute("spec", spec);
 		request.setAttribute("stock", finalStockStr);
 		request.setAttribute("imageUrl", fileName);
+		
 
 		boolean hasError = false;
 

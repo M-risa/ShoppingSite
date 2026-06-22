@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+.success-main-container {
+    max-width: 600px;
+    margin: 140px auto; 
+    text-align: center;
+    padding: 0 20px;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+/* チェックマークのアイコン風演出 */
+.success-icon {
+    font-size: 56px;
+    font-weight: 300;
+    color: #000000;
+    margin-bottom: 24px;
+    animation: fadeInScale 0.6s ease-out; 
+}
+
+/*  メインタイトル */
+.success-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 24px;
+    letter-spacing: 2px; 
+}
+
+/* サンクスメッセージ文 */
+.success-message {
+    font-size: 14px;
+    color: #666666;
+    line-height: 2.0;
+    margin-bottom: 48px;
+    letter-spacing: 0.5px;
+}
+
+/* ボタン配置エリア */
+.success-actions {
+    margin-top: 32px;
+}
+
+/* トップページへ戻るボタン */
+.btn-continue-shopping {
+    display: inline-block;
+    width: 260px;
+    padding: 16px 0;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* ボタンにマウスを乗せたときの変化 */
+.btn-continue-shopping:hover {
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+}
+
+/* ✨ 画面表示時 */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

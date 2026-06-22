@@ -18,10 +18,14 @@ public class ProductSearchAction extends Action {
 		
 		String keyword = request.getParameter("keyword");
 		String category = request.getParameter("category");
+		String sort = request.getParameter("sort");
+				if(sort == null || sort.isEmpty()) {
+					sort = "default";
+				}
 		
 		try {
 			ProductDAO dao = new ProductDAO();
-			List<ProductBeans> productList = dao.searchProduct(keyword, category);
+			List<ProductBeans> productList = dao.searchProduct(keyword, category, sort);
 			
 			request.setAttribute("productList", productList);
 			return "/views/product-list.jsp";

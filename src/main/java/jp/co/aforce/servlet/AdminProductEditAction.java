@@ -29,8 +29,8 @@ public class AdminProductEditAction extends Action {
 			
 			String savePath = "C:\\upload_images";
 			java.io.File uploadDir = new java.io.File(savePath);
-			if (!uploadDir.exists()) { 
-				uploadDir.mkdir(); 
+			if (!uploadDir.exists()) {
+					uploadDir.mkdir();
 			}
 			filePart.write(savePath + java.io.File.separator + fileName);
 			System.out.println("画像をフォルダに一時保存しました: " + fileName);

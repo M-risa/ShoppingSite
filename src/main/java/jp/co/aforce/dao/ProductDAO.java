@@ -63,7 +63,7 @@ public class ProductDAO extends DAO {
 	}
 	
 	//商品検索
-	public List<ProductBeans> searchProduct(String keyword, String category) throws Exception{
+	public List<ProductBeans> searchProduct(String keyword, String category, String sort) throws Exception{
 		List<ProductBeans> list = new ArrayList<>();
 		Connection con = getConnection();
 		StringBuilder sql = new StringBuilder("SELECT * FROM products WHERE 1=1");
@@ -74,6 +74,23 @@ public class ProductDAO extends DAO {
 		
 		if(category != null && !category.trim().isEmpty()) {
 			sql.append(" AND category = ?");
+		}
+		
+		//並び替え
+		if("price_asc".equals(sort)) {
+			sql.append(" ORDER BY PRICE ASC");
+		} else if("price_desc".equals(sort)) {
+			sql.append(" ORDER BY PRICE DESC");
+		} else if("name_asc".equals(sort)) {
+			sql.append(" ORDER BY PRODUCT_NAME ASC");
+		} else if("name_desc".equals(sort)) {
+			sql.append(" ORDER BY PRODUCT_NAME DESC");
+		} else if("category_asc".equals(sort)) {
+			sql.append(" ORDER BY CATEGORY_NAME ASC");
+		} else if("category_desc".equals(sort)) {
+			sql.append(" ORDER BY CATEGORY_NAME DESC");
+		} else {
+			sql.append(" ORDER BY PRODUCT_ID DESC");
 		}
 		
 		PreparedStatement st = con.prepareStatement(sql.toString());

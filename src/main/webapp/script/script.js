@@ -94,3 +94,23 @@ function deleteOnTheSpot(){
 		});
 	}
 }
+
+//並び替え
+function submitWithFilters(selectElem){
+	const filterForm = document.querySelector('.product-filter-form');
+	if(filterForm){
+		let hiddenSort = filterForm.querySelector('input[name="sort"]');
+		
+		if(!hiddenSort){
+			hiddenSort = document.createElement('input');
+			hiddenSort.type = 'hidden';
+			hiddenSort.name = 'sort';
+			filterForm.appendChild(hiddenSort);
+		}
+	
+		hiddenSort.value = selectElem.value;
+		filterForm.submit();
+	} else{
+		selectElem.form.submit();
+	}
+}
