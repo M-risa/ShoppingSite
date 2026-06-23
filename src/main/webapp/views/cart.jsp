@@ -76,7 +76,7 @@
 								<div class="cart-item-remove-box">
 									<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/CartRemove.action"
 										method="post">
-										<input type="hidden" name="productId" value="${product.productId}">
+										<input type="hidden" name="productId" value="${item.product.productId}">
 										<button type="submit" class="btn-cart-remove">削除</button>
 									</form>
 								</div>

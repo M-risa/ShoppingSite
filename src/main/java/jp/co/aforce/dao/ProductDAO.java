@@ -86,9 +86,9 @@ public class ProductDAO extends DAO {
 		} else if("name_desc".equals(sort)) {
 			sql.append(" ORDER BY PRODUCT_NAME DESC");
 		} else if("category_asc".equals(sort)) {
-			sql.append(" ORDER BY CATEGORY_NAME ASC");
+			sql.append(" ORDER BY CATEGORY ASC");
 		} else if("category_desc".equals(sort)) {
-			sql.append(" ORDER BY CATEGORY_NAME DESC");
+			sql.append(" ORDER BY CATEGORY DESC");
 		} else {
 			sql.append(" ORDER BY PRODUCT_ID DESC");
 		}

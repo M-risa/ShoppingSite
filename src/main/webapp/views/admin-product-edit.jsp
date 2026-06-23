@@ -8,6 +8,7 @@ if (product != null) {
     isCustomStock = (product.getStock() != 5 && product.getStock() != 10 && product.getStock() != 20 && product.getStock() != 50);
 }
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,14 @@ if (product != null) {
 
 </head>
 <body id="admin-body">
+
+	<c:set var="currentName"     value="${not empty productName ? productName : product.productName}" />
+	<c:set var="currentPrice"    value="${not empty price ? price : product.price}" />
+	<c:set var="currentCategory" value="${not empty category ? category : product.category}" />
+	<c:set var="currentSpec"     value="${not empty spec ? spec : product.spec}" />
+	
+	<c:set var="currentStock"    value="${not empty stock ? stock : product.stock}" />
+	<c:set var="isCustomStock"   value="${currentStock != 5 && currentStock != 10 && currentStock != 20 && currentStock != 50}" />
 
 	<div class="adminMainContainer">
 		<h2>商品情報編集</h2>
@@ -38,17 +47,17 @@ if (product != null) {
 			method="post" class="register-form" enctype="multipart/form-data">
 
 			<input type="hidden" name="productId"
-				value="<%=product.getProductId()%>">
+				value="${not empty product.productId ? product.productId : productId}">
 
 			<div class="form-group">
 				<label>商品ID</label>
-				<span class="product-id-text"><%=product.getProductId()%></span>
+				<span class="product-id-text">${not empty product.productId ? product.productId : productId}</span>
 			</div>
 
 			<div class="form-group">
 				<label for="productName">商品名</label>
 				<input type="text" id="productName" name="productName"
-					value="<%= product.getProductName() %>" required>
+					value="${currentName}" required>
 			</div>
 
 			<div class="form-group">
@@ -61,22 +70,21 @@ if (product != null) {
 				<%
 				}
 				%>
-				<input type="text" id="price" name="price" value="<%= product.getPrice() %>" required>
+				<input type="text" id="price" name="price" value="${currentPrice}" required>
 			</div>
 
 			<div class="form-group">
 				<label>カテゴリー</label>
 				<div class="radio-group">
-					<label><input type="radio" name="category" value="monitor" <%= "monitor".equals(product.getCategory()) ? "checked" : "" %>> モニター</label>
-					<label><input type="radio" name="category" value="keyboard" <%= "keyboard".equals(product.getCategory()) ? "checked" : "" %>> キーボード</label>
-					<label><input type="radio" name="category" value="mouse" <%= "mouse".equals(product.getCategory()) ? "checked" : "" %>> マウス</label>
-					<label><input type="radio" name="category" value="other" <%= "other".equals(product.getCategory()) ? "checked" : "" %>> その他周辺機器</label>
-				</div>
+					<label><input type="radio" name="category" value="monitor" ${currentCategory == 'monitor' ? 'checked' : ''}> モニター</label>
+					<label><input type="radio" name="category" value="keyboard" ${currentCategory == 'keyboard' ? 'checked' : ''}> キーボード</label>
+					<label><input type="radio" name="category" value="mouse" ${currentCategory == 'mouse' ? 'checked' : ''}> マウス</label>
+					<label><input type="radio" name="category" value="other" ${currentCategory == 'other' ? 'checked' : ''}> その他周辺機器</label></div>
 			</div>
 
 			<div class="form-group">
 				<label for="spec">スペック・仕様詳細</label>
-				<textarea id="spec" name="spec" rows="5"><%= product.getSpec() != null ? product.getSpec() : "" %></textarea>
+				<textarea id="spec" name="spec" rows="5">${currentSpec}</textarea>
 			</div>
 
 			<div class="form-group">
@@ -90,14 +98,14 @@ if (product != null) {
 				}
 				%>
 				<div class="radio-group">
-					<label><input type="radio" name="stock" value="5" <%= product.getStock() == 5 ? "checked" : "" %>> 5個</label>
-					<label><input type="radio" name="stock" value="10" <%= product.getStock() == 10 ? "checked" : "" %>> 10個</label>
-					<label><input type="radio" name="stock" value="20" <%= product.getStock() == 20 ? "checked" : "" %>> 20個</label>
-					<label><input type="radio" name="stock" value="50" <%= product.getStock() == 50 ? "checked" : "" %>> 50個</label>
+					<label><input type="radio" name="stock" value="5" ${currentStock == 5 ? 'checked' : ''}> 5個</label>
+					<label><input type="radio" name="stock" value="10" ${currentStock == 10 ? 'checked' : ''}> 10個</label>
+					<label><input type="radio" name="stock" value="20" ${currentStock == 20 ? 'checked' : ''}> 20個</label>
+					<label><input type="radio" name="stock" value="50" ${currentStock == 50 ? 'checked' : ''}> 50個</label>
 	                    
 					<label class="other-option">
-						<input type="radio" name="stock" value="other" id="stock-other" <%= isCustomStock ? "checked" : "" %>>その他
-	                    <input type="number" name="stock_custom" id="stockCustomInput" min="1" value="<%= isCustomStock ? product.getStock() : "" %>">個
+						<input type="radio" name="stock" value="other" id="stock-other" ${isCustomStock ? 'checked' : ''}>その他
+	                    <input type="number" name="stock_custom" id="stockCustomInput" min="1" value="${isCustomStock ? currentStock : ''}">個
 					</label>
 				</div>
 			</div>

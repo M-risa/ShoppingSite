@@ -24,19 +24,32 @@ public class AdminProductEditAction extends Action {
 		Part filePart = request.getPart("imageFile");
 		String fileName = null;
 		
-		if (filePart != null && filePart.getSize() > 0) {
+		if(filePart != null && filePart.getSize() > 0) {
+			// ファイル名を取得し、ブラウザによるフルパス送信対策をする（純粋なファイル名のみ抽出）
 			fileName = filePart.getSubmittedFileName();
+			fileName = new java.io.File(fileName).getName();
 			
-			String savePath = "C:\\upload_images";
-			java.io.File uploadDir = new java.io.File(savePath);
-			if (!uploadDir.exists()) {
-					uploadDir.mkdir();
+			//  OS環境（WindowsかLinuxか）を自動判定して、保存先を切り替える
+			String osName = System.getProperty("os.name").toLowerCase();
+			String savePath = "";
+			
+			if (osName.contains("windows")) {
+				// ローカル環境（Windows）の場合
+				savePath = "C:\\upload_images";
+			} else {
+				//  AWS環境（Linux）の場合
+				savePath = "/var/www/shopping_images/";
 			}
-			filePart.write(savePath + java.io.File.separator + fileName);
-			System.out.println("画像をフォルダに一時保存しました: " + fileName);
 			
-		} else {
-			fileName = request.getParameter("imageUrl");
+			//  フォルダが存在しなければ、深い階層（/var/www/...）まで自動で作らせる
+			java.io.File uploadDir = new java.io.File(savePath);
+			if (!uploadDir.exists()) { 
+				uploadDir.mkdirs(); 
+			} 
+			
+			// それぞれの環境に応じた正しいパスで画像を書き込む
+			filePart.write(savePath + java.io.File.separator + fileName); 
+			System.out.println("【ログ】画像がフォルダに入りました: " + savePath + java.io.File.separator + fileName);
 		}
 			
 		//ストックのその他の入力情報を取得

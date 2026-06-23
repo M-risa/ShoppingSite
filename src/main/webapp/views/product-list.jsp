@@ -58,8 +58,9 @@
 							<option value="category_asc" ${param.sort == 'category_asc' ? 'selected' : '' }>カテゴリー（昇順）</option>
 							<option value="category_desc" ${param.sort == 'category_desc' ? 'selected' : '' }>カテゴリー（降順）</option>
 						</select>
-					
+						
 					</div>
+					
 					<button type="submit" class="btn-product-compare">比較する</button>
 				</div>
 
@@ -83,8 +84,7 @@
 							<div class="product-img-box">
 								<c:choose>
 									<c:when test="${not empty product.imageUrl}">
-										<img
-											src="<%= request.getContextPath() %>/images/${product.imageUrl}"
+										<img src="<%= request.getContextPath() %>/images/${product.imageUrl}"
 											alt="${product.productName}">
 									</c:when>
 									<c:otherwise>

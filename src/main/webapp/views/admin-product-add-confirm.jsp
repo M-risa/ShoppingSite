@@ -73,7 +73,7 @@
 			<div class="confirm-group">
 				<span class="confirm-label">登録した画像：</span>
 				<div class="confirm-value">
-					<img src="${pageContext.request.contextPath}/uploaded-images/${imageUrl}" alt="プレビュー" class="confirm-preview-img"><br>
+					<img src="${pageContext.request.contextPath}/images/${imageUrl}" alt="プレビュー" class="confirm-preview-img"><br>
 					<span style="font-size: 0.85em; color: #666; word-break: break-all;">${imageUrl}</span>
 				</div>
 				<input type="hidden" name="imageUrl" value="${imageUrl}">
@@ -93,8 +93,8 @@
 			<p>データベースへの登録が正常に完了しました！</p>
 
 			<div class="modalButtons">
-				<button type="button" id="btn-add" class="btn-modal-primary">続けて商品を登録する</button>
-				<button type="button" id="btn-manage" class="btn-modal-secondary">商品管理画面に戻る</button>
+				<button type="button" id="btn-add" class="btn-modal-action">続けて商品を登録する</button>
+				<button type="button" id="btn-manage" class="btn-modal-action">商品管理画面に戻る</button>
 			</div>
 		</div>
 	</div>

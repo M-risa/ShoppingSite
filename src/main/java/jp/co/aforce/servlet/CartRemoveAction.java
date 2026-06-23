@@ -29,7 +29,7 @@ public class CartRemoveAction extends Action {
 
 		session.setAttribute("cart", cart);
 	
-		return "/views/cart.jsp";
+		return "/jp/co/aforce/servlet/CartView.action";
 	}
 
 }

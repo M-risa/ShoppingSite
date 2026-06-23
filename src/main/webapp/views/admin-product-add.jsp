@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
 			<div class="form-group">
 				<label for="productName">商品名</label>
 				<input type="text" id="productName" name="productName"
-					placeholder="例: ROG Swift 4K ゲーミングモニター" required>
+					placeholder="例: ROG Swift 4K ゲーミングモニター" value="${not empty productName ? productName : ''}" required>
 			</div>
 
 			<div class="form-group">
@@ -46,23 +47,23 @@
 				}
 				%>
 				<input type="text" id="price" name="price" placeholder="例: 148000"
-					required>
+					value="${not empty price ? price : ''}" required>
 			</div>
 
 			<div class="form-group">
 				<label>カテゴリー</label>
 				<div class="radio-group">
-					<label><input type="radio" name="category" value="monitor" checked> モニター</label>
-					<label><input type="radio" name="category" value="keyboard"> キーボード</label> 
-					<label><input type="radio" name="category" value="mouse"> マウス</label>
-					<label><input type="radio" name="category" value="other"> その他周辺機器</label>
+					<label><input type="radio" name="category" value="monitor" ${(empty category || category == 'monitor') ? 'checked' : ''}> モニター</label>
+					<label><input type="radio" name="category" value="keyboard" ${category == 'keyboard' ? 'checked' : ''}> キーボード</label> 
+					<label><input type="radio" name="category" value="mouse" ${category == 'mouse' ? 'checked' : ''}> マウス</label>
+					<label><input type="radio" name="category" value="other" ${category == 'other' ? 'checked' : ''}> その他周辺機器</label>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="spec">スペック・仕様詳細</label>
 				<textarea id="spec" name="spec" rows="5"
-					placeholder="例:&#10;解像度: 3840x2160 (4K)&#10;リフレッシュレート: 240Hz"></textarea>
+					placeholder="例:&#10;解像度: 3840x2160 (4K)&#10;リフレッシュレート: 240Hz">${not empty spec ? spec : ''}</textarea>
 			</div>
 
 			<div class="form-group">
@@ -76,13 +77,14 @@
 				}
 				%>
 				<div class="radio-group">
-					<label><input type="radio" name="stock" value="5" checked>5個</label>
-					<label><input type="radio" name="stock" value="10">10個</label>
-					<label><input type="radio" name="stock" value="20">20個</label>
-					<label><input type="radio" name="stock" value="50">50個</label>
+					<label><input type="radio" name="stock" value="5" ${(empty stock || stock == '5') ? 'checked' : ''}>5個</label>
+					<label><input type="radio" name="stock" value="10" ${stock == '10' ? 'checked' : ''}>10個</label>
+					<label><input type="radio" name="stock" value="20" ${stock == '20' ? 'checked' : ''}>20個</label>
+					<label><input type="radio" name="stock" value="50" ${stock == '50' ? 'checked' : ''}>50個</label>
 					<label class="other-option">
-					<input type="radio" name="stock" value="other" id="stock-other">その他
-					<input type="number" name="stock_custom" id="stockCustomInput" placeholder="例：100">個</label>
+						<input type="radio" name="stock" value="other" id="stock-other" ${isCustomStock ? 'checked' : ''}>その他
+						<input type="number" name="stock_custom" id="stockCustomInput" placeholder="例：100" value="${isCustomStock ? stock_custom : ''}">個
+					</label>
 				</div>
 			</div>
 

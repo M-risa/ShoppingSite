@@ -79,7 +79,7 @@
 			<div class="confirm-group">
 				<span class="confirm-label">変更後の画像：</span>
 				<div class="confirm-value">
-					<img src="${pageContext.request.contextPath}/uploaded-images/${imageUrl}" alt="プレビュー" class="confirm-preview-img"><br>
+					<img src="${pageContext.request.contextPath}/images/${imageUrl}" alt="プレビュー" class="confirm-preview-img"><br>
 					<span style="font-size: 0.85em; color: #666; word-break: break-all;">${imageUrl}</span>
 				</div>
 				<input type="hidden" name="imageUrl" value="${imageUrl}">
