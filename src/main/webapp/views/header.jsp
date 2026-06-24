@@ -15,7 +15,7 @@
 
 	<div class="header-search">
 		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/ProductSearch.action"
-			method="get" class="header-search-form">
+			method="get" class="header-search-form" onsubmit="return handleHeaderSearch(event, this)">
 			<input type="text" name="keyword" placeholder="何をお探しですか？"
 				value="${param.keyword}">
 			<button type="submit" class="btn-header-search">検索</button>
@@ -32,8 +32,28 @@
 		%>
 		
 		<a href="<%= myPageUrl %>">マイページ</a>
-		<a href = "${pageContext.request.contextPath}/jp/co/aforce/servlet/CartView.action">カート</a>
-		</nav>
 		
+		<a href = "${pageContext.request.contextPath}/jp/co/aforce/servlet/CartView.action" >カート
+
+		</a>
+	</nav>
+		
+		
+		<div id="login-modal" class="modalOverlay" style="display: none;">
+		<div class="modalBox">
+			<h3 style="color: #ff4444; margin-top: 0;">ログインが必要です</h3>
+			<p style="margin: 15px 0; color: #cccccc; font-size: 14px; line-height: 1.5;">
+				商品の検索機能をご利用いただくには、事前にログインしていただく必要があります。
+			</p>
+			<div class="modalButtons" style="display: flex; justify-content: center; gap: 15px;">
+				<a href="${pageContext.request.contextPath}/views/login-in.jsp" class="btn" style="text-decoration: none;">ログイン画面へ</a>
+				<button type="button" class="btn-back" onclick="closeLoginModal()">閉じる</button>
+			</div>
+		</div>
+	</div>
+	
+	<input type="hidden" id="is-logged-in-flag" value="${not empty sessionScope.user ? 'true' : 'false'}">
+	
+	
 </header>
 		

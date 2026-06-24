@@ -15,8 +15,12 @@ public class CartViewAction extends Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-
+		
 		HttpSession session = request.getSession();
+		if(session.getAttribute("user") == null) {
+			return "/views/login-in.jsp";
+		}
+
 		List<CartItemBeans> cart = (List<CartItemBeans>) session.getAttribute("cart");
 		
 		
@@ -28,7 +32,7 @@ public class CartViewAction extends Action {
 			for(CartItemBeans item : cart) {
 				//単価×数量の合計（税別）
 				totalPriceExcludingTax += item.getProduct().getPrice() * item.getCount();
-				//っ買う商品の税込み小計の合計
+				//買う商品の税込み小計の合計
 				totalPriceIncludingTax += item.getTaxIncludedSubtotal();
 			}
 			//消費税（税込合計 - 税別合計）

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -17,35 +18,33 @@
 
 	<div class="adminMainContainer">
 		<h2>新規商品登録</h2>
-		<%
-		if (request.getAttribute("error") != null) {
-		%>
-		<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
-			${error}</p>
-		<%
-		}
-		%>
-
+		
+			<c:if test="${not empty error}">
+				<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
+					<c:out value="${error}" />
+				</p>
+			</c:if>
+		
 		<form
 			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminProductAdd.action"
 			method="post" class="register-form" enctype="multipart/form-data">
 
 			<div class="form-group">
 				<label for="productName">商品名</label>
+					<c:if test="${not empty productNameError}">
+						<p style="color: #ff4444; font-weight: bold; margin-bottom: 5px;"><c:out value="${productNameError}" /></p>
+					</c:if>
 				<input type="text" id="productName" name="productName"
 					placeholder="例: ROG Swift 4K ゲーミングモニター" value="${not empty productName ? productName : ''}" required>
 			</div>
 
 			<div class="form-group">
 				<label for="price">価格 (円)</label>
-				<%
-				if (request.getAttribute("priceError") != null) {
-				%>
-				<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
-					${priceError}</p>
-				<%
-				}
-				%>
+					<c:if test="${not empty priceError}">
+						<p style="color: #ff4444; font-weight: bold; margin-bottom: 5px;">
+							<c:out value="${priceError}" />
+						</p>
+					</c:if>
 				<input type="text" id="price" name="price" placeholder="例: 148000"
 					value="${not empty price ? price : ''}" required>
 			</div>
@@ -62,20 +61,22 @@
 
 			<div class="form-group">
 				<label for="spec">スペック・仕様詳細</label>
+					<c:if test="${not empty specError}">
+						<p style="color: #ff4444; font-weight: bold; margin-bottom: 5px;">
+							<c:out value="${specError}" />
+						</p>
+					</c:if>
 				<textarea id="spec" name="spec" rows="5"
 					placeholder="例:&#10;解像度: 3840x2160 (4K)&#10;リフレッシュレート: 240Hz">${not empty spec ? spec : ''}</textarea>
 			</div>
 
 			<div class="form-group">
 				<label>初期在庫数（ストック）</label>
-				<%
-				if (request.getAttribute("stockError") != null) {
-				%>
-				<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
-					${stockError}</p>
-				<%
-				}
-				%>
+					<c:if test="${not empty stockError}">
+						<p style="color: #ff4444; font-weight: bold; margin-bottom: 5px;">
+							<c:out value="${stockError}" />
+						</p>
+					</c:if>
 				<div class="radio-group">
 					<label><input type="radio" name="stock" value="5" ${(empty stock || stock == '5') ? 'checked' : ''}>5個</label>
 					<label><input type="radio" name="stock" value="10" ${stock == '10' ? 'checked' : ''}>10個</label>
@@ -90,6 +91,9 @@
 
 			<div class="form-group">
 				<label for="imageFile">商品画像アップロード</label>
+					<c:if test="${not empty imageError}">
+						<p style="color: #ff4444; font-weight: bold; margin-bottom: 5px;"><c:out value="${imageError}" /></p>
+					</c:if>
 				<input type="file" id="imageFile" name="imageFile" accept="image/*">
 			</div>
 

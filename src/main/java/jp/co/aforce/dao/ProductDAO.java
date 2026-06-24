@@ -68,11 +68,17 @@ public class ProductDAO extends DAO {
 		Connection con = getConnection();
 		StringBuilder sql = new StringBuilder("SELECT * FROM products WHERE 1=1");
 		
-		if(keyword != null && !keyword.trim().isEmpty()) {
+		// 🚀全角・半角スペース対策
+		String cleanKeyword = (keyword != null) ? keyword.strip() : "";
+		String cleanCategory = (category != null) ? category.strip() : "";
+
+		//  キーワード条件の追加
+		if (!cleanKeyword.isEmpty()) {
 			sql.append(" AND (product_name LIKE ? OR spec LIKE ?)");
 		}
-		
-		if(category != null && !category.trim().isEmpty()) {
+
+		//  カテゴリー条件の追加
+		if (!cleanCategory.isEmpty()) {
 			sql.append(" AND category = ?");
 		}
 		
@@ -96,13 +102,13 @@ public class ProductDAO extends DAO {
 		PreparedStatement st = con.prepareStatement(sql.toString());
 		int paramIndex = 1;
 		
-		if(keyword != null && !keyword.trim().isEmpty()) {
-			String likeStr = "%" + keyword + "%";
+		if (!cleanKeyword.isEmpty()) {
+			String likeStr = "%" + cleanKeyword + "%";
 			st.setString(paramIndex++, likeStr);
 			st.setString(paramIndex++, likeStr);
 		}
-		if (category != null && !category.trim().isEmpty()) {
-	        st.setString(paramIndex++, category);
+		if (!cleanCategory.isEmpty()) {
+			st.setString(paramIndex++, cleanCategory);
 		}
 		
 		ResultSet rs = st.executeQuery();

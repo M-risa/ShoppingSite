@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import jp.co.aforce.beans.ProductBeans;
 import jp.co.aforce.dao.ProductDAO;
@@ -15,6 +16,11 @@ public class ProductSearchAction extends Action {
 	public String execute(
 			HttpServletRequest request, HttpServletResponse response
 			) throws Exception {
+		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user") == null) {
+			return "redirect:/views/login-in.jsp";
+		}
 		
 		String keyword = request.getParameter("keyword");
 		String category = request.getParameter("category");

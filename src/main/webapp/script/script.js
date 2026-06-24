@@ -110,49 +110,105 @@ function deleteOnTheSpot() {
 }
 
 
-	// 【内部補助関数】実際の削除非同期通信
-	function executeDeleteFetch(productId) {
-		fetch(`${contextPath}/jp/co/aforce/servlet/AdminProductDelete.action`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
-			body: `selectProductId=${productId}`
-		})
-			.then(response => {
-				if (response.ok) {
-					const targetCard = document.getElementById(`product-${productId}`);
-					if (targetCard) {
-						targetCard.remove(); // 画面からカードを削除
-						showCustomAlert('商品を削除しました。');
-					}
-				} else {
-					showCustomAlert('削除に失敗しました。');
+// 【内部補助関数】実際の削除非同期通信
+function executeDeleteFetch(productId) {
+	fetch(`${contextPath}/jp/co/aforce/servlet/AdminProductDelete.action`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		body: `selectProductId=${productId}`
+	})
+		.then(response => {
+			if (response.ok) {
+				const targetCard = document.getElementById(`product-${productId}`);
+				if (targetCard) {
+					targetCard.remove(); // 画面からカードを削除
+					showCustomAlert('商品を削除しました。');
 				}
-			})
-			.catch(error => {
-				console.error('Error:', error);
-				showCustomAlert('通信エラーが発生しました。');
-			});
-	}
-
-	//並び替え
-	function submitWithFilters(selectElem) {
-		const filterForm = document.querySelector('.product-filter-form');
-		if (filterForm) {
-			let hiddenSort = filterForm.querySelector('input[name="sort"]');
-
-			if (!hiddenSort) {
-				hiddenSort = document.createElement('input');
-				hiddenSort.type = 'hidden';
-				hiddenSort.name = 'sort';
-				filterForm.appendChild(hiddenSort);
+			} else {
+				showCustomAlert('削除に失敗しました。');
 			}
+		})
+		.catch(error => {
+			console.error('Error:', error);
+			showCustomAlert('通信エラーが発生しました。');
+		});
+}
 
-			hiddenSort.value = selectElem.value;
-			filterForm.submit();
-		} else {
-			selectElem.form.submit();
+//並び替え
+function submitWithFilters(selectElem) {
+	const filterForm = document.querySelector('.product-filter-form');
+	if (filterForm) {
+		let hiddenSort = filterForm.querySelector('input[name="sort"]');
+
+		if (!hiddenSort) {
+			hiddenSort = document.createElement('input');
+			hiddenSort.type = 'hidden';
+			hiddenSort.name = 'sort';
+			filterForm.appendChild(hiddenSort);
 		}
+
+		hiddenSort.value = selectElem.value;
+		filterForm.submit();
+	} else {
+		selectElem.form.submit();
+	}
+}
+
+
+/**
+ * ヘッダーの検索バー送信時の制御
+*/
+function handleHeaderSearch(event, formEl) {
+	// JSP側にある隠しインプットからログイン状態（'true' か 'false'）を取得
+	const loginFlagEl = document.getElementById('is-logged-in-flag');
+	const isLoggedIn = loginFlagEl ? loginFlagEl.value === 'true' : false;
+
+	// 未ログインの場合
+	if (!isLoggedIn) {
+		event.preventDefault();
+
+		// ダイアログを表示
+		const modal = document.getElementById('login-modal');
+		if (modal) {
+			modal.style.display = 'flex';
+		}
+		return false;
 	}
 
+	// ログイン済みならそのまま検索を実行
+	return true;
+}
+
+
+function closeLoginModal() {
+	const modal = document.getElementById('login-modal');
+	if (modal) {
+		modal.style.display = 'none';
+	}
+}
+
+/**
+ * 商品詳細画面：カート追加完了ダイアログの制御ロジック
+ */
+window.addEventListener('DOMContentLoaded', () => {
+    // JSP側の隠しインプットからカート追加フラグ（'true' か 'false'）を取得
+    const cartAddedFlagEl = document.getElementById('cart-added-flag');
+    const isCartAdded = cartAddedFlagEl ? cartAddedFlagEl.value === 'true' : false;
+    
+    // カート追加直後であれば、ダイアログを自動でポップアップ表示する
+    if (isCartAdded) {
+        const modal = document.getElementById('cart-success-modal');
+        if (modal) {
+            modal.style.display = 'flex';
+        }
+    }
+});
+
+function closeCartModal() {
+    const modal = document.getElementById('cart-success-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}

@@ -31,8 +31,10 @@ public class CartAddAction extends Action {
 		String countStr = request.getParameter("count");
 		int count = (countStr != null && !countStr.isEmpty()) ? Integer.parseInt(countStr) : 1;
 		
+		int productId = 0;
+		
 		if(productIdStr != null && !productIdStr.isEmpty()) {
-			int productId = Integer.parseInt(productIdStr);
+			productId = Integer.parseInt(productIdStr);
 			
 			ProductDAO dao = new ProductDAO();
 			ProductBeans product = dao.getProductById(productId);
@@ -40,7 +42,7 @@ public class CartAddAction extends Action {
 			if(product != null) {
 				if(product.getStock() <= 0) {
 					request.setAttribute("errorMsg", "申し訳ありません。この商品は売り切れのためカートに追加できません。");
-					return "ProductDetail.action?productId=" + productId;
+					return "/jp/co/aforce/servlet/ProductDetail.action?productId=" + productId;
 				}
 				//カート内に同じ商品があるかチェック
 				boolean exists = false;
@@ -60,6 +62,7 @@ public class CartAddAction extends Action {
 		
 		session.setAttribute("cart", cart);
 		
-		return "redirect:/jp/co/aforce/servlet/CartView.action";
+		
+		return "/jp/co/aforce/servlet/CartView.action";
 	}
 }

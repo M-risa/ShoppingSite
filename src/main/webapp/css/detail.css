@@ -188,3 +188,88 @@
 	width: 100%;
 	box-sizing: border-box;
 }
+
+/* 🚀 1. 画面全体を薄暗く覆うマスク */
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+}
+
+/* 🚀 2. 中央の白いボックス */
+.modalBox {
+	background-color: #ffffff;
+	padding: 40px;
+	border-radius: 4px; 
+	width: 90%;
+	max-width: 460px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+	text-align: center;
+	box-sizing: border-box;
+}
+
+/* ダイアログ内のタイトル */
+.modalBox h3 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #333333;
+	margin: 0 0 15px 0;
+	letter-spacing: 0.05em;
+}
+
+/* ダイアログ内の説明文 */
+.modalBox p {
+	font-size: 14px;
+	color: #666666;
+	line-height: 1.6;
+	margin: 0 0 30px 0;
+}
+
+/* 🚀 3. ボタンエリアの並び */
+.modalButtons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+}
+
+/* メインのアクションボタン */
+.modalButtons .btn {
+	display: inline-block;
+	background-color: #000000;
+	color: #ffffff !important;
+	padding: 12px 24px;
+	font-size: 14px;
+	font-weight: bold;
+	border: 1px solid #000000;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+.modalButtons .btn:hover {
+	background-color: #333333;
+}
+
+/* サブのボタン */
+.modalButtons .btn-back {
+	display: inline-block;
+	background-color: #ffffff;
+	color: #333333 !important;
+	padding: 12px 24px;
+	font-size: 14px;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s, border-color 0.2s;
+}
+.modalButtons .btn-back:hover {
+	background-color: #f5f5f5;
+	border-color: #999999;
+}

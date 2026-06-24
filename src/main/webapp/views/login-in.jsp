@@ -11,7 +11,7 @@
 
 </head>
 
-<body id="page-body"><%@include file="header.jsp" %>
+<body id="page-body"><%@ include file="header.jsp" %>
 	
 	<div class="common-container">
 	<h2>ログイン</h2>
