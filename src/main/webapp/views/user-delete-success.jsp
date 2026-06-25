@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>削除完了</title>
+<title>削除完了 | SETUP LAB</title>
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 

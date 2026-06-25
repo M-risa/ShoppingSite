@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理者 - 編集内容確認</title>
+<title>【管理者モード】編集内容確認</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-common.css">

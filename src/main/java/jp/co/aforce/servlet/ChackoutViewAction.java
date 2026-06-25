@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import jp.co.aforce.beans.ProductBeans;
+import jp.co.aforce.beans.CartItemBeans;
 import jp.co.aforce.tool.Action;
 
 public class ChackoutViewAction extends Action {
@@ -19,15 +19,17 @@ public class ChackoutViewAction extends Action {
 		HttpSession session = request.getSession();
 		
 		
-		List<ProductBeans> cart = (List<ProductBeans>) session.getAttribute("cart");
+		List<CartItemBeans> cart = (List<CartItemBeans>) session.getAttribute("cart");
 		
 		if(cart == null || cart.isEmpty()) {
 			return "redirect://jp/co/aforce/servlet/CartView.action";
 		}
 		
 		int total = 0;
-		for(ProductBeans item : cart) {
-			total += item.getPrice();
+		for (CartItemBeans item : cart) {
+			
+			total += item.getTaxIncludedSubtotal(); 
+			
 		}
 		
 		request.setAttribute("totalPrice", total);

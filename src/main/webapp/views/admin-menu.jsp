@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理者メニュー</title>
+<title>【管理者モード】メニュー</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-common.css">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/compare.css">
 
-<title>商品比較 | Setup Lab</title>
+<title>商品比較 | SETUP LAB</title>
 </head>
 <body id="page-body"><%@include file="header.jsp"%>
 
@@ -60,7 +61,7 @@
 							<th>価格</th>
 							<c:forEach var="product" items="${compareList}">
 								<td>
-									<span class="compare-product-price">${product.price} 円</span>
+									<span class="compare-product-price"><fmt:formatNumber value="${product.price}" pattern="#,###" /> 円</span>
 								</td>
 							</c:forEach>
 						</tr>

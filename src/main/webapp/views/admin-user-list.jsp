@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>管理者モード</title>
+<title>【管理者モード】会員情報管理</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-common.css">
@@ -55,8 +55,11 @@
 			</table>
 		</div>
 
-		<br> <input type="button" value="管理者メニューに戻る" class="btn-back"
-			onclick="location.href='${pageContext.request.contextPath}/views/admin-menu.jsp'">
+		<br>
+		<div class="back-button-container">
+			<a href="${pageContext.request.contextPath}/views/admin-menu.jsp"
+				class="btn-back">管理者メニューに戻る</a>
+		</div>
 
 
 	</div>

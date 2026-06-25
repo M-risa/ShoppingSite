@@ -1,46 +1,204 @@
 @charset "UTF-8";
 
+@charset "UTF-8";
+
+/* 画面全体のセンタリングと余白 */
 .success-main-container {
-    max-width: 600px;
-    margin: 140px auto; 
+    max-width: 700px;
+    margin: 60px auto; 
     text-align: center;
     padding: 0 20px;
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+    box-sizing: border-box;
 }
 
-/* チェックマークのアイコン風演出 */
+/* チェックマーク */
 .success-icon {
     font-size: 56px;
     font-weight: 300;
     color: #000000;
-    margin-bottom: 24px;
-    animation: fadeInScale 0.6s ease-out; 
+    margin-bottom: 20px;
 }
 
-/*  メインタイトル */
+/* 「ご注文が完了いたしました」のタイトル */
 .success-title {
     font-size: 22px;
-    font-weight: 600;
+    font-weight: bold;
     color: #000000;
-    margin-bottom: 24px;
-    letter-spacing: 2px; 
+    margin-bottom: 40px;
+    letter-spacing: 1px;
 }
 
-/* サンクスメッセージ文 */
+/* 📦 商品リスト全体のコンテナ */
+.checkout-products-list {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* 📦 手書き図面通りの商品カード（外枠） */
+.checkout-product-card {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+/* 枠内の上段：画像 ＋ 商品名（Flexboxで横並び） */
+.product-card-top {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #e2e8f0; /* 上段と下段を分ける破線 */
+    margin-bottom: 20px;
+}
+
+/* 💥 商品画像のボックス（巨大化を完全に防ぐ） */
+.product-image-box {
+    width: 90px;
+    height: 90px;
+    margin-right: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #f1f5f9;
+    background-color: #ffffff;
+}
+
+.product-image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 商品名・スペック情報 */
+.product-info-box {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.product-name-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    line-height: 1.5;
+}
+
+.product-spec-sub {
+    font-size: 12px;
+    color: #64748b;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+/* 枠内の下段：単価 / 数量 / 小計（綺麗に3列横並び） */
+.product-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 下段の各項目（ラベルを上、数値を下に並べる） */
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-label {
+    font-size: 11px;
+    color: #64748b;
+}
+
+.info-value {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* 3列のテキスト配置バランス調整 */
+.item-price { text-align: left; }
+.item-count { text-align: center; }
+.item-count .info-label, .item-count .info-value { text-align: center; }
+.item-subtotal { text-align: right; }
+.item-subtotal .info-label, .item-subtotal .info-value { text-align: right; }
+
+
+/* ✨ カート画面とお揃いの「注文内容」ボックス */
+.order-billing-box {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    padding: 30px 40px;
+    background-color: #ffffff;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* 黒太線の「注文内容」見出し */
+.order-billing-box::before {
+    content: "注文内容";
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 20px;
+}
+
+/* 各金額の行 */
+.billing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 16px;
+}
+
+/* 税込合計の行 */
+.order-billing-box .total-row {
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #000000;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.order-billing-box .total-row span:first-child {
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333;
+}
+
+/* カート画面仕様の大きな太字金額 */
+.final-price {
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* お礼のメッセージ文 */
 .success-message {
     font-size: 14px;
-    color: #666666;
-    line-height: 2.0;
-    margin-bottom: 48px;
-    letter-spacing: 0.5px;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 40px;
 }
 
-/* ボタン配置エリア */
+/* 「トップページへ戻る」ボタン */
 .success-actions {
     margin-top: 32px;
 }
 
-/* トップページへ戻るボタン */
 .btn-continue-shopping {
     display: inline-block;
     width: 260px;
@@ -48,26 +206,23 @@
     background-color: #000000;
     color: #ffffff;
     border: 1px solid #000000;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: bold;
     text-decoration: none;
     text-align: center;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
-/* ボタンにマウスを乗せたときの変化 */
 .btn-continue-shopping:hover {
     background-color: #ffffff;
     color: #000000;
-    cursor: pointer;
 }
-
 /* ✨ 画面表示時 */
 @keyframes fadeInScale {
     0% {
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.95);
     }
     100% {
         opacity: 1;

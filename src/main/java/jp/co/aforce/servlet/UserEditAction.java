@@ -82,11 +82,14 @@ public class UserEditAction extends Action{
 
 		if (loginUser != null) {
 			String currentMemberId = loginUser.getmemberId();
-
+			String currentMailAddress = loginUser.getmailAddress();
+			
+			if(!mailAddress.equals(currentMailAddress)) {
 			UserDAO dao = new UserDAO();
-			if (dao.existsMailAddressForEdit(mailAddress, currentMemberId)) {
-				request.setAttribute("mailError", "このメールアドレスはすでに他のユーザーに登録されています。");
-				return "/views/user-edit.jsp";
+				if (dao.existsMailAddressForEdit(mailAddress, currentMemberId)) {
+					request.setAttribute("mailError", "このメールアドレスはすでに他のユーザーに登録されています。");
+					return "/views/user-edit.jsp";
+				}
 			}
 		}
 		

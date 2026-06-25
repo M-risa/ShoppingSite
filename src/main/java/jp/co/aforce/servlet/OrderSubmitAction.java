@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import jp.co.aforce.beans.ProductBeans;
+import jp.co.aforce.beans.CartItemBeans;
 import jp.co.aforce.beans.UserBeans;
 import jp.co.aforce.dao.OrderDAO;
 import jp.co.aforce.tool.Action;
@@ -26,24 +26,32 @@ public class OrderSubmitAction extends Action {
 			return "/views/login-in.jsp";
 		}
 		
-		List<ProductBeans> cart = (List<ProductBeans>) session.getAttribute("cart");
+		List<CartItemBeans> cart = (List<CartItemBeans>) session.getAttribute("cart");
 		if(cart == null || cart.isEmpty()) {
 			return "redirect:/jp/co/aforce/servlet/Home.action";
 		}
 			
-			int totalPrice = 0;
-			for(ProductBeans product : cart) {
-				totalPrice += product.getPrice();
-			}
+		int totalPrice = 0;
+		for (CartItemBeans item : cart) {
+			totalPrice += item.getTaxIncludedSubtotal();
+		}
 			
 			String userId = loginUser.getmemberId();
 			
 			OrderDAO dao = new OrderDAO();
-			boolean isSuccess = dao.insertOrder(userId, totalPrice, cart);
+			int orderId = dao.insertOrder(userId, totalPrice, cart);
 			
-			if(isSuccess) {
+			if(orderId > 0) {
+				java.time.LocalDateTime now = java.time.LocalDateTime.now();
+				java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+				String orderDate = now.format(formatter);
+				
+				session.setAttribute("orderId", orderId);
+				session.setAttribute("orderDate", orderDate);
+				
+				session.setAttribute("lastCart", cart);
 				session.removeAttribute("cart");
-				return "redirect:/jp/co/aforce/servlet/OrderSuccessView.action";
+				return "redirect://jp/co/aforce/servlet/OrderSuccessView.action";
 			} else {
 				request.setAttribute("errorMsg", "申し訳ありません。商品が売り切れました。カートの中身をご確認ください。");
 				return "/views/cart.jsp";

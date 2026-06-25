@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>商品管理</title>
+<title>【管理者モード】商品管理</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-common.css">

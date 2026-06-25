@@ -37,6 +37,13 @@ public class UserEditConfirmAction extends Action{
         int line = dao.update(updateBeans);
         
         if(line > 0) {
+        	loginUser.setlastName(lastName);
+			loginUser.setfirstName(firstName);
+			loginUser.setaddress(address);
+			loginUser.setmailAddress(mailAddress);
+
+			session.setAttribute("user", loginUser);
+			
         	return "redirect:/views/user-edit-success.jsp";
         } else {
         	return "/views/login-in.jsp";

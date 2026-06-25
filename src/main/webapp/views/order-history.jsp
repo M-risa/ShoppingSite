@@ -86,6 +86,13 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+	<div class="history-actions-container"
+		style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+		<div class="action-box-mini">
+			<input type="button" value="マイページに戻る" class="btn-back"
+				onclick="location.href='${pageContext.request.contextPath}/views/user-menu.jsp'">
+		</div>
+	</div>
 
 	<%@ include file="footer.jsp"%>
 </body>

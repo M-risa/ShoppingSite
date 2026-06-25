@@ -14,7 +14,7 @@ if (product != null) {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>商品情報編集</title>
+<title>【管理者モード】商品情報編集</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/admin-common.css">

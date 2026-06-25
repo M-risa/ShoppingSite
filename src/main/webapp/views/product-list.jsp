@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PRODUCTS</title>
+<title>商品一覧 | SETUP LAB</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/common.css">
@@ -98,7 +99,7 @@
 								<p class="product-spec-text">${product.spec}</p>
 
 								<div class="product-card-bottom">
-									<span class="product-price-display">${product.price} 円</span> <a
+									<span class="product-price-display"><fmt:formatNumber value="${product.price}" pattern="#,###" /> 円</span> <a
 										href="<%= request.getContextPath() %>/jp/co/aforce/servlet/ProductDetail.action?productId=${product.productId}"
 										class="btn-view-detail">詳細はこちら ➔</a>
 								</div>

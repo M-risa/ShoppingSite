@@ -3,9 +3,17 @@
 /*エラー画面用のパーツ*/
 
 .error-text {
-    font-size: 15px;
-    font-weight: 700;
-    color: #b71c1c;
-    margin-top: 10px;
-    margin-bottom: 10px;
+	font-size: 15px;
+	font-weight: 700;
+	color: #b71c1c;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.system-text {
+	font-size: 14px;
+	color: #666;
+	line-height: 1.6;
+	margin-bottom: 30px;
+
 }

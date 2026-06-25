@@ -3,13 +3,13 @@
 /* 登録画面専用のメインコンテナ */
 .adminMainContainer {
 	width: 100%;
-	max-width: 500px;
-	padding: 50px 40px;
+	max-width: 680px;
+	padding:40px;
 	background-color: #1a1a1a;
 	border: 1px solid #333333;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 	box-sizing: border-box;
-	margin: 150px auto 60px auto;
+	margin: 40px auto 100px auto;
 }
 
 /* タイトル */
@@ -247,7 +247,6 @@
 .modalButtons .btn-back {
 	display: block;
 	width: 100%;
-	/* スクショ内の「はい」「いいえ」ボタンの絶妙なサイズ感に固定 */
 	max-width: 380px;
 	padding: 12px 0;
 	background-color: #ffffff !important;

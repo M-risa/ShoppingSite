@@ -2,84 +2,94 @@
 
 /* 管理者メニュー用コンテナボックス */
 .admin-container {
-    width: 100%;
-    max-width: 440px;
-    padding: 40px;
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    box-sizing: border-box; 
-    margin: 180px auto 60px auto; 
+	width: 100%;
+	max-width: 440px;
+	padding: 40px;
+	background-color: #1a1a1a;
+	border: 1px solid #333333;
+	border-radius: 8px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+	margin: 180px auto 60px auto;
 }
+
 /* 会員情報管理テーブル専用のデザイン */
 
 .adminUserListContainer {
-    width: 92% !important;
-    max-width: 1200px !important;
-    padding: 40px;
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    box-sizing: border-box !important;
-    margin: 180px auto 60px auto;
+	width: 92% !important;
+	max-width: 1200px !important;
+	padding: 40px;
+	background-color: #1a1a1a;
+	border: 1px solid #333333;
+	border-radius: 8px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+	box-sizing: border-box !important;
+	margin: 180px auto 60px auto;
 }
 
 /* テーブルを囲むレスポンシブコンテナ */
 .table-responsive {
-    width: 100% !important;
-    overflow-x: auto !important;
-    box-sizing: border-box !important;
-    margin: 25px auto 30px auto;
+	width: 100% !important;
+	overflow-x: auto !important;
+	box-sizing: border-box !important;
+	margin: 25px auto 30px auto;
 }
 
 .userTable {
-    width: 100% !important;
-    max-width: 900px; 
-    border-collapse: collapse;
-    font-size: 14px;
-    background-color: #262626;
-    margin: 0 auto;
-    table-layout: fixed !important;
+	width: 100% !important;
+	max-width: 900px;
+	border-collapse: collapse;
+	font-size: 14px;
+	background-color: #262626;
+	margin: 0 auto;
+	table-layout: fixed !important;
 }
 
 .userTable th {
-    background-color: #333333; 
-    color: #ffffff;
-    font-weight: 700;
-    padding: 14px 12px;
-    border-bottom: 2px solid #e50914;
-    text-align: left;
-    white-space: nowrap;
+	background-color: #333333;
+	color: #ffffff;
+	font-weight: 700;
+	padding: 14px 12px;
+	border-bottom: 2px solid #e50914;
+	text-align: left;
+	white-space: nowrap;
 }
 
 .userTable td {
-    padding: 14px 12px;
-    color: rgb(255, 255, 255);
-    border-bottom: 1px solid #ebeeef;
-    text-align: left;
-    /* 🌟 アドレスなどの長い英単語が来ても、突き抜けずに枠内で自動改行させる */
-    word-wrap: break-word !important;
-    white-space: normal !important; 
+	padding: 14px 12px;
+	color: rgb(255, 255, 255);
+	border-bottom: 1px solid #ebeeef;
+	text-align: left;
+	/* 🌟 アドレスなどの長い英単語が来ても、突き抜けずに枠内で自動改行させる */
+	word-wrap: break-word !important;
+	white-space: normal !important;
+}
+
+/* 「管理者メニューに戻る」ボタン */
+.back-button-container {
+	max-width: 1000px;
+	margin: 20px auto 60px auto;
+	padding: 0 30px;
+	text-align: center;
 }
 
 /* ↩️ 戻るボタン */
 .btn-back {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #0a0a0a;
-    color: #cccccc;
-    border: 1px solid #444444;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.3s;
-    margin: 0 auto;
+	display: inline-block;
+	padding: 12px 24px;
+	background-color: #0a0a0a;
+	color: #cccccc;
+	border: 1px solid #444444;
+	font-size: 13px;
+	font-weight: 700;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: all 0.3s;
+	margin: 20px auto 0 auto;
 }
+
 .btn-back:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
+	background-color: #ffffff;
+	color: #000000;
+	border-color: #ffffff;
 }

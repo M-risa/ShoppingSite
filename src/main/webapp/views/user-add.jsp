@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新規会員登録 | shoppingSite</title>
+<title>新規会員登録 | SETUP LAB</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/common.css">

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>商品詳細</title>
+<title>商品詳細 | SETUP LAB</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/common.css">
@@ -35,8 +36,8 @@
 			<p class="detail-product-spec">${product.spec}</p>
 
 			<div class="detail-price-row">
-				<span class="detail-price-label">値段</span> <span
-					class="detail-price">${product.price} 円</span>
+				<span class="detail-price-label">値段</span>
+				<span class="product-price-display"><fmt:formatNumber value="${product.price}" pattern="#,###" /> 円</span>
 			</div>
 
 			<div class="detail-stock-row">

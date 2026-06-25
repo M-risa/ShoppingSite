@@ -113,6 +113,7 @@
 	color: #666666;
 	margin: 0 0 12px 0;
 	line-height: 1.5;
+	white-space: pre-line;
 }
 
 /* 数量選択ボックスのスタイル */

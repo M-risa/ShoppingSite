@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/macro/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登録情報変更</title>
+<title>登録情報変更 | SETUP LAB</title>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/common.css">
@@ -23,6 +22,7 @@
 			<p style="color: #ff4444; font-weight: bold; margin-bottom: 15px;">
 				<c:out value="${error}" />
 			</p>
+		</c:if>
 
 			<form
 				action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserEdit.action"

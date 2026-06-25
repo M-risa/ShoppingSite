@@ -6,13 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
+import jp.co.aforce.beans.CartItemBeans;
 import jp.co.aforce.beans.HistoryItemBeans;
 import jp.co.aforce.beans.OrderBeans;
 import jp.co.aforce.beans.ProductBeans;
 
 public class OrderDAO extends DAO {
 
-	public boolean insertOrder(String memberId, int totalPrice, List<ProductBeans> cart) throws Exception{
+	public int insertOrder(String memberId, int totalPrice, List<CartItemBeans> cart) throws Exception{
 		Connection con = getConnection();
 		PreparedStatement stOrder = null;
 		PreparedStatement stDetail = null;
@@ -42,8 +43,9 @@ public class OrderDAO extends DAO {
 			stDetail = con.prepareStatement(sqlDetail);
 			stStock = con.prepareStatement(sqlStock);
 			
-			for(ProductBeans product : cart){
-				int quantity = 1;
+			for(CartItemBeans item : cart){
+				ProductBeans product = item.getProduct();
+				int quantity = item.getCount();
 				
 				stCheckStock.setInt(1, product.getProductId());
 				ResultSet rsStock = stCheckStock.executeQuery();
@@ -55,7 +57,7 @@ public class OrderDAO extends DAO {
 						rsStock.close();
 						con.rollback();
 						System.out.println("❌ 在庫不足エラー: 商品ID " + product.getProductId() + " の在庫が足りません。");
-						return false;
+						return 0;
 					}
 				}
 				rsStock.close();
@@ -72,14 +74,14 @@ public class OrderDAO extends DAO {
 			}
 			
 			con.commit();
-			return true;
+			return orderId;
 			
 		} catch(Exception e) {
 			if(con != null) {
 				con.rollback();
 			}
 			e.printStackTrace();
-			return false;
+			return 0;
 		} finally {
 			if(stOrder != null)stOrder.close();
 			if(stDetail != null)stDetail.close();
