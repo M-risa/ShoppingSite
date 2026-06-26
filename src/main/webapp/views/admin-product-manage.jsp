@@ -29,6 +29,28 @@
 			<button type="button" class="btn" onclick="goToEdit()">編集</button>
 			<button type="button" class="btn" onclick="deleteOnTheSpot()">削除</button>
 		</div>
+		
+		<div class="admin-filter-bar">	
+			<div class="filter-group">
+				<span class="filter-title">FILTER:</span>
+				<label><input type="checkbox" name="category" value="monitor" ${param.category == 'monitor' ? 'checked' : ''}> モニター</label>
+				<label><input type="checkbox" name="category" value="keyboard" ${param.category == 'keyboard' ? 'checked' : ''}> キーボード</label>
+				<label><input type="checkbox" name="category" value="mouse" ${param.category == 'mouse' ? 'checked' : ''}> マウス</label>
+			</div>
+	
+			<div class="sort-group">
+				<select name="sort">
+					<option value="id_asc" ${param.sort == 'id_asc' ? 'selected' : ''}>商品ID</option>
+					<option value="default" ${param.sort == 'default' ? 'selected' : ''}>新着順</option>
+					<option value="price_asc" ${param.sort == 'price_asc' ? 'selected' : ''}>価格の安い順</option>
+					<option value="price_desc" ${param.sort == 'price_desc' ? 'selected' : ''}>価格の高い順</option>
+					<option value="name_asc" ${param.sort == 'name_asc' ? 'selected' : ''}>商品名（昇順）</option>
+					<option value="name_desc" ${param.sort == 'name_desc' ? 'selected' : ''}>商品名（降順）</option>
+				</select>
+				
+				<button type="button" class="btn-apply" onclick="this.form.method='get'; this.form.action='${pageContext.request.contextPath}/jp/co/aforce/servlet/AdminSearch.action'; this.form.submit();">適用</button>
+			</div>
+		</div>
 
 		<div class="adminProductContainer">
 			
@@ -53,11 +75,12 @@
 										<c:choose>
 											
 											<c:when test="<%= osName.contains(\"windows\") %>">
-												<img src="${pageContext.request.contextPath}/images/${product.imageUrl}" alt="商品画像">
+												<img src="<%= request.getContextPath() %>/images/${imageUrl}" alt="${product.productName}">
 											</c:when>
 											
 											<c:otherwise>
-												<img src="/shopping_images/${product.imageUrl}" alt="商品画像">
+												<img src="<%= request.getContextPath() %>/images/${product.imageUrl}"
+													alt="${product.productName}">
 											</c:otherwise>
 										</c:choose>
 									</c:when>
@@ -97,7 +120,7 @@
 
 							<div class="product-status-area">
 								<p class="productPrice">
-									<fmt:formatNumber value="${product.price}" pattern="#,###" /><span>円</span>
+									<fmt:formatNumber value="${product.price}" pattern="#,###" /><span>円（単価）</span>
 								</p>
 								<div class="productStockStatus">
 									現在庫：${product.stock} 個

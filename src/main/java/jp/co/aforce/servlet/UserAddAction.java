@@ -66,8 +66,8 @@ public class UserAddAction extends Action {
 		}
 
 		// 半角英数字（a-z, A-Z, 0-9）以外が含まれていたらエラー
-		if (!memberId.matches("^[a-zA-Z][0-9]+$")) {
-			request.setAttribute("idError", "ユーザーIDは半角英数字のみで入力してください。");
+		if (!memberId.matches("^[a-zA-Z0-9]{4,20}$")) {
+			request.setAttribute("idError", "ユーザーIDは4〜20文字の半角英数字で入力してください。");
 			hasError = true;
 		}
 		//パスワード文字数チェック

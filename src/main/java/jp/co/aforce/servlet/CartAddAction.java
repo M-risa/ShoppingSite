@@ -42,19 +42,37 @@ public class CartAddAction extends Action {
 			if(product != null) {
 				if(product.getStock() <= 0) {
 					request.setAttribute("errorMsg", "申し訳ありません。この商品は売り切れのためカートに追加できません。");
-					return "/jp/co/aforce/servlet/ProductDetail.action?productId=" + productId;
+					request.setAttribute("product", product);
+					return "/views/product-detail.jsp";
 				}
 				//カート内に同じ商品があるかチェック
 				boolean exists = false;
+				int currentCartCount = 0;
+				CartItemBeans existingItem = null;
+				
 				for(CartItemBeans item : cart) {
 					if(item.getProduct().getProductId() == productId) {
 						//あったら数量を増加
-						item.setCount(item.getCount() + count);
+						currentCartCount = item.getCount();
+						existingItem = item;
 						exists = true;
 						break;
 					}
 				}
-				if(!exists) {
+				int targetTotalCount = currentCartCount + count;
+				
+				if(targetTotalCount > product.getStock()) {
+					
+					request.setAttribute("errorMsg", "申し訳ありません。この商品は在庫数（" + product.getStock() + "個）を超えてカートに入れることはできません。（現在カートに " + currentCartCount + " 個入っています）");
+					
+					// 詳細画面を再表示するために必要なデータをリクエストに詰める
+					request.setAttribute("product", product);
+					return "/views/product-detail.jsp";
+				}
+				
+				if(exists && existingItem != null) {
+					existingItem.setCount(targetTotalCount);
+				}else {
 					cart.add(new CartItemBeans(product, count));
 				}
 			}

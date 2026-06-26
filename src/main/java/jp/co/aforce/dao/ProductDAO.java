@@ -68,7 +68,7 @@ public class ProductDAO extends DAO {
 		Connection con = getConnection();
 		StringBuilder sql = new StringBuilder("SELECT * FROM products WHERE 1=1");
 		
-		// 🚀全角・半角スペース対策
+		// 全角・半角スペース対策
 		String cleanKeyword = (keyword != null) ? keyword.strip() : "";
 		String cleanCategory = (category != null) ? category.strip() : "";
 
@@ -95,6 +95,8 @@ public class ProductDAO extends DAO {
 			sql.append(" ORDER BY CATEGORY ASC");
 		} else if("category_desc".equals(sort)) {
 			sql.append(" ORDER BY CATEGORY DESC");
+		} else if("id_asc".equals(sort)) {
+			sql.append(" ORDER BY PRODUCT_ID ASC");
 		} else {
 			sql.append(" ORDER BY PRODUCT_ID DESC");
 		}
@@ -121,6 +123,8 @@ public class ProductDAO extends DAO {
 			product.setSpec(rs.getString("SPEC"));
 			product.setStock(rs.getInt("STOCK"));
 			product.setImageUrl(rs.getString("image_url"));
+			product.setRegistDate(rs.getString("REGIST_DATE")); 
+			product.setUpdateDate(rs.getString("UPDATE_DATE"));
 			list.add(product);
 		}
 		rs.close();

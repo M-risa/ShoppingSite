@@ -7,8 +7,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import jp.co.aforce.beans.CartItemBeans;
+import jp.co.aforce.beans.ProductBeans;
 import jp.co.aforce.beans.UserBeans;
 import jp.co.aforce.dao.OrderDAO;
+import jp.co.aforce.dao.ProductDAO;
 import jp.co.aforce.tool.Action;
 
 public class OrderSubmitAction extends Action {
@@ -29,6 +31,19 @@ public class OrderSubmitAction extends Action {
 		List<CartItemBeans> cart = (List<CartItemBeans>) session.getAttribute("cart");
 		if(cart == null || cart.isEmpty()) {
 			return "redirect:/jp/co/aforce/servlet/Home.action";
+		}
+		
+		ProductDAO productDao = new ProductDAO();
+		for (CartItemBeans item : cart) {
+			ProductBeans latestProduct = productDao.getProductById(item.getProduct().getProductId());
+
+			if (latestProduct == null || latestProduct.getStock() < item.getCount()) {
+				// タッチの差で誰かに買われて在庫が足りなくなった場合
+				int availableStock = (latestProduct != null) ? latestProduct.getStock() : 0;
+				request.setAttribute("errorMsg", "申し訳ありません。「" + item.getProduct().getProductName() +
+						"」はタッチの差で売り切れるか、在庫数が不足してしまいました。（現在の残り在庫: " + availableStock + "個）");
+				return "/views/cart.jsp";
+			}
 		}
 			
 		int totalPrice = 0;

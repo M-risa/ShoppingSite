@@ -40,7 +40,7 @@
 							<c:out value="${item.product.productName}" />
 						</h3>
 						<div class="item-price">
-							<fmt:formatNumber value="${item.subtotal}" pattern="#,###" /> 円
+							<fmt:formatNumber value="${item.subtotal * 1.1}" pattern="#,###" /> 円
 						</div>
 						<div class="item-count">
 							数量：<c:out value="${item.count}" />
@@ -49,6 +49,12 @@
 
 				</div>
 			</c:forEach>
+		</div>
+
+		<div class="tax-box"style="text-align: right">
+			内消費税(10%): <span> <fmt:formatNumber
+					value="${totalPrice * 10 / 110}" pattern="#,###" />
+			</span>円
 		</div>
 
 		<div class="total-box">

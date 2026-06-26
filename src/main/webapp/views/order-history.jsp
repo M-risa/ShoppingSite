@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +41,10 @@
 								</div>
 								<div class="info-row">
 									<span class="info-label">合計金額：</span>
-									<span class="info-value price-highlight">${order.totalPrice}円</span>
+									<span class="info-value price-highlight"><fmt:formatNumber value="${order.totalPrice}" pattern="#,###" />円</span> <span
+										style="font-size: 13px; color: #666666; margin-left: 6px;">
+										（内消費税(10%)：<fmt:formatNumber value="${order.totalPrice * 10 / 110}" pattern="#,###" />円）
+									</span>
 								</div>
 								<div class="info-row">
 									<span class="info-label">注文日：</span> <span class="info-value">${order.orderDate}</span>
@@ -66,7 +70,7 @@
 
 										<div class="history-product-details">
 											<h3 class="history-product-title">${item.productName}</h3>
-											<p class="history-product-price">${item.price}円</p>
+											<p class="history-product-price"><fmt:formatNumber value="${item.price * 1.1}" pattern="#,###" />円</p>
 											<span class="history-product-qty">数量: ${item.quantity}</span>
 										</div>
 

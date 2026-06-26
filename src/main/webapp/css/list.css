@@ -11,12 +11,13 @@
 .product-filter-bar {
     background-color: #ffffff;
     border-bottom: 1px solid #e5e5e5;
-    padding: 15px 0;
+    padding: 15px 40px;
     margin-bottom: 50px;
 }
 .product-filter-form, .filter-group-horizontal {
     display: flex;
     align-items: center;
+	justify-content: space-around;
 }
 .product-filter-form { justify-content: space-between; }
 .filter-group-horizontal { gap: 30px; }
@@ -201,7 +202,7 @@
     display: inline-block;
     width: 100%;
     max-width: 200px;
-    background-color: #ff0014; 
+    background-color: #000000; 
     color: #ffffff;
     text-decoration: none;
     padding: 10px 0;
@@ -209,12 +210,12 @@
     font-weight: 700;
     letter-spacing: 0.05em;
     transition: background-color 0.3s;
-    border: 1px solid #ff0014;
+    border: 1px solid #000000;
     text-align: center;
 }
 .btn-view-detail:hover {
-    background-color: #d60010;
-    border-color: #d60010;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 /*  並び替えセレクトボックスのレイアウト調整 */

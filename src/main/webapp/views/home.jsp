@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,6 @@
 						</div>
 						<div class="home-product-info">
 							<h3 class="home-product-name">${product.productName}</h3>
-							<p class="home-product-price">${product.price} 円</p>
 							<a href="${pageContext.request.contextPath}/jp/co/aforce/servlet/ProductDetail.action?productId=${product.productId}" class="btn-home-detail">詳細を表示</a>
 						</div>
 					</div>

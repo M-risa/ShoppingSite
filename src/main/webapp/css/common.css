@@ -281,3 +281,26 @@ body {
 	display: inline-block;
 	vertical-align: middle;
 }
+
+.header-cart-link {
+    position: relative;
+    display: inline-block;
+    padding-right: 14px;
+}
+
+/* 🚀 数字バッジのデザイン（赤丸白文字） */
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff3b30;
+    color: white !important;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 5px;
+    line-height: 1;
+    text-align: center;
+    min-width: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}

@@ -18,7 +18,7 @@ public class CartViewAction extends Action {
 		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("user") == null) {
-			return "/views/login-in.jsp";
+			return "redirect:/views/login-in.jsp";
 		}
 
 		List<CartItemBeans> cart = (List<CartItemBeans>) session.getAttribute("cart");

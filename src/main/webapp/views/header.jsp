@@ -9,6 +9,13 @@
  		myPageUrl = request.getContextPath() + "/views/admin-menu.jsp";
  	}
  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<c:set var="totalCartCount" value="0" />
+<c:forEach var="item" items="${sessionScope.cart}">
+	<c:set var="totalCartCount" value="${totalCartCount + item.count}" />
+</c:forEach>
 
 <header class = "site-header">
 	<a href = "${pageContext.request.contextPath}/jp/co/aforce/servlet/Home.action" class="header-logo">Setup Lab</a>
@@ -33,9 +40,7 @@
 		
 		<a href="<%= myPageUrl %>">マイページ</a>
 		
-		<a href = "${pageContext.request.contextPath}/jp/co/aforce/servlet/CartView.action" >カート
-
-		</a>
+		<a href = "${pageContext.request.contextPath}/jp/co/aforce/servlet/CartView.action" class="header-cart-link">カート<c:if test="${totalCartCount > 0}"><span class="cart-badge">${totalCartCount}</span></c:if></a>
 	</nav>
 		
 		
@@ -56,4 +61,3 @@
 	
 	
 </header>
-		

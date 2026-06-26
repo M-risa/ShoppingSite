@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Context>
-
-	<Resource name="jdbc/ShoppingSite" auth="Container"
-		type="javax.sql.DataSource" maxTotal="100" maxIdle="30"
-		maxWaitMillis="10000" username="root" password="atm8wrkc"
-		driverClassName="com.mysql.cj.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/shoppingsite_muraishi" />
-
-</Context>
-
 <!--<Context>-->
-<!--	<Resource name="jdbc/ShoppingSite" auth="Container" type="javax.sql.DataSource"-->
+
+<!--	<Resource name="jdbc/ShoppingSite" auth="Container"-->
+<!--		type="javax.sql.DataSource" maxTotal="100" maxIdle="30"-->
+<!--		maxWaitMillis="10000" username="root" password="atm8wrkc"-->
 <!--		driverClassName="com.mysql.cj.jdbc.Driver"-->
-<!--		url="jdbc:mysql://newemployeetraining2026forjava.crm2yqee80o7.ap-northeast-1.rds.amazonaws.com:3306/shoppingsite_muraishi"-->
-<!--		username="admin" password="aforce2868"-->
-<!--		maxActive="20" maxIdle="10" maxWait="-1" />-->
+<!--		url="jdbc:mysql://localhost:3306/shoppingsite_muraishi" />-->
+
 <!--</Context>-->
+
+<Context>
+	<Resource name="jdbc/ShoppingSite" auth="Container" type="javax.sql.DataSource"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://newemployeetraining2026forjava.crm2yqee80o7.ap-northeast-1.rds.amazonaws.com:3306/shoppingsite_muraishi"
+		username="admin" password="aforce2868"
+		maxActive="20" maxIdle="10" maxWait="-1" />
+</Context>

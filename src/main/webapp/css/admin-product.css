@@ -24,7 +24,7 @@
 /* 全体を包むメインコンテナ*/
 .adminProductContainer {
 	max-width: 1300px;
-	margin: 40px auto 20px auto;
+	margin: 0 auto 40px auto;
 	padding: 30px;
 	background-color: #1a1a1a;
 	border-radius: 8px;
@@ -57,7 +57,7 @@
 	border-color: #e50914;
 }
 
-/* 🎯 選択用ラジオボタンエリア*/
+/*  選択用ラジオボタンエリア*/
 .productSelectArea {
 	width: 30px !important;
 	min-width: 30px !important;
@@ -197,17 +197,19 @@
 /* 「登録・編集・削除」ボタンの横並びコンテナ */
 .actionButtonsContainer {
 	position: fixed;
-	width: 100%;
-	max-width: none;
-	background-color: rgba(20, 20, 20, 0.95);
-	border-top: 1px solid #333333;
-	padding: 15px 0;
-	margin: 0;
-	display: flex;
-	justify-content: center;
-	gap: 15px;
-	z-index: 100;
-	box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.8);
+		top: 0;
+		left: 0;
+		width: 100%;
+		max-width: none;
+		background-color: rgba(20, 20, 20, 0.95);
+		border-bottom: 1px solid #333333;
+		padding: 15px 0;
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		gap: 15px;
+		z-index: 100;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
 }
 
 /* 共通ボタン */
@@ -342,4 +344,103 @@
 .modalButtons .btn:hover,
 .modalButtons .btn-back:hover {
 	background-color: #ffffff !important;
+}
+
+/* ==========================================================================
+    追加：管理者商品一覧 フィルター・ソートバーの専用デザイン
+   ========================================================================== */
+
+.admin-filter-bar {
+	background-color: #1a1a1a;
+	    padding: 16px 24px;
+	    border: 1px solid #333333;
+	    border-radius: 6px;
+	    margin: 100px auto 20px auto; 
+	    max-width: 1300px;
+	    width: 92%;
+	    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	    box-sizing: border-box;
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+	    flex-wrap: wrap;
+	    gap: 15px;
+}
+
+/* FILTER: の文字スタイル */
+.admin-filter-bar .filter-title {
+    color: #e50914 !important;
+    font-weight: bold !important;
+    margin-right: 12px !important;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+/* チェックボックスの枠組みと文字色（白へ強制変更） */
+.admin-filter-bar .filter-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.admin-filter-bar .filter-group label {
+    color: #ffffff !important;   /* 🚀 文字を真っ白にします */
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.admin-filter-bar .filter-group input[type="checkbox"] {
+    margin-right: 6px !important;
+    accent-color: #e50914 !important; /* チェックボックスのチェック色をブランド赤に */
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* ソートセレクトと適用ボタンのグループ */
+.admin-filter-bar .sort-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-filter-bar .sort-group select {
+    background-color: #262626;
+    color: #ffffff;
+    border: 1px solid #444444;
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.admin-filter-bar .sort-group select:focus {
+    border-color: #e50914;
+}
+
+/* 適用ボタンの赤黒の格好いいデザイン */
+.admin-filter-bar .btn-apply {
+    background-color: #e50914;
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.admin-filter-bar .btn-apply:hover {
+    background-color: #b8070f;
+}
+
+.admin-filter-bar .btn-apply:active {
+    transform: scale(0.97);
 }

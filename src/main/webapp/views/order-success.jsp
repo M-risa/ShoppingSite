@@ -39,16 +39,16 @@
 
 					<div class="product-card-bottom">
 						<div class="info-item item-price">
-							<span class="info-label">単価</span>
-							<span class="info-value"><fmt:formatNumber value="${item.product.price}" pattern="#,###" /> 円</span>
+							<span class="info-label">単価（税込）</span>
+							<span class="info-value"><fmt:formatNumber value="${item.product.price * 1.1}" pattern="#,###" /> 円</span>
 						</div>
 						<div class="info-item item-count">
 							<span class="info-label">数量</span>
 							<span class="info-value"><c:out value="${item.count}" /></span>
 						</div>
 						<div class="info-item item-subtotal">
-							<span class="info-label">小計(税別)</span>
-							<span class="info-value"><fmt:formatNumber value="${item.subtotal}" pattern="#,###" /> 円</span>
+							<span class="info-label">小計</span>
+							<span class="info-value"><fmt:formatNumber value="${item.subtotal * 1.1}" pattern="#,###" /> 円</span>
 						</div>
 					</div>
 

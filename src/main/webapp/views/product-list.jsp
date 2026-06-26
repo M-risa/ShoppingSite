@@ -99,7 +99,7 @@
 								<p class="product-spec-text">${product.spec}</p>
 
 								<div class="product-card-bottom">
-									<span class="product-price-display"><fmt:formatNumber value="${product.price}" pattern="#,###" /> 円</span> <a
+									<span class="product-price-display"><fmt:formatNumber value="${product.price * 1.1}" pattern="#,###" /> 円</span> <a
 										href="<%= request.getContextPath() %>/jp/co/aforce/servlet/ProductDetail.action?productId=${product.productId}"
 										class="btn-view-detail">詳細はこちら ➔</a>
 								</div>
